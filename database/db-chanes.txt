@@ -1,0 +1,7 @@
+31/05/2022
+ALTER TABLE `general_settings` ADD `b_ads_limit` INT NULL DEFAULT NULL AFTER `spare_parts_limit`, 
+ADD `b_spare_parts_limit` INT NULL DEFAULT NULL AFTER `b_ads_limit`, 
+ADD `b_service_limit` INT NULL DEFAULT NULL AFTER `b_spare_parts_limit`; 
+
+ALTER TABLE `ads_pricing` CHANGE `number_of_days` `number_of_days` INT NULL DEFAULT NULL; 
+ALTER TABLE `ads_pricing` ADD `user_category` VARCHAR(20) NULL DEFAULT NULL AFTER `id`; 

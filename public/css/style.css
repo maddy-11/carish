@@ -1,0 +1,4828 @@
+html {
+    font-size: 15px
+}
+
+body {
+    font-family: SegoeUI;
+    color: rgba(0, 0, 0, .8)
+}
+
+.modal-open .modal,
+body.modal-open {
+    padding-right: 0 !important
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Light"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.ttf) format("truetype");
+    font-weight: 100
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Semilight"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.ttf) format("truetype");
+    font-weight: 200
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf) format("truetype");
+    font-weight: 400
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Bold"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.ttf) format("truetype");
+    font-weight: 700
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Semibold"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.ttf) format("truetype");
+    font-weight: 600
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600
+}
+
+.font-weight-light {
+    font-weight: 100
+}
+
+.font-weight-semilight {
+    font-weight: 200
+}
+
+.font-weight-semibold {
+    font-weight: 600
+}
+
+.btn,
+a,
+input,
+input[type=search],
+input[type=submit] {
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear
+}
+
+a,
+small {
+    color: inherit
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    outline: 0;
+    color: #005e9b
+}
+
+.btn {
+    padding: .6rem 2rem;
+    outline: 0;
+    background: 0 0;
+    color: #0072bb;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    border-color: #0072bb;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-width: 1px
+}
+
+input[type=submit] {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    min-height: 3rem;
+    padding: .5rem 2rem
+}
+
+.btn:focus,
+.btn:hover {
+    background: #8dadc1;
+    color: #776262
+}
+
+.btn,
+.themebtn1 {
+    background: #005e9b;
+    color: #fff;
+    border: none
+}
+
+.themebtn2 {
+    background: #e81123;
+    color: #fff;
+    border: none
+}
+
+.themebtn2[type=button]:focus,
+.themebtn2[type=button]:hover,
+.themebtn2[type=submit]:focus,
+.themebtn2[type=submit]:hover,
+a.themebtn2:focus,
+a.themebtn2:hover {
+    background: #c20111;
+    color: #fff
+}
+
+.themebtn3 {
+    background: #67b500;
+    color: #fff
+}
+
+.themebtn3[type=button]:focus,
+.themebtn3[type=button]:hover,
+.themebtn3[type=submit]:focus,
+.themebtn3[type=submit]:hover,
+a.themebtn3:focus,
+a.themebtn3:hover {
+    background: #005e9b;
+    color: #fff
+}
+
+.themebtn4 {
+    background: 0 0;
+    color: #0072bb;
+    border: 1px solid #0072bb;
+}
+
+.cookieinfo-close {
+    color: #fff !important
+}
+
+.cookieinfo-close:hover {
+    background: #539200 !important;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear
+}
+
+.notifySubBtn:focus,
+.notifySubBtn:hover {
+    background: #0072bb;
+    color: #fff;
+    border-color: transparent
+}
+
+.bootstrap-select>.dropdown-toggle,
+.form-control {
+    box-shadow: none;
+    color: #000;
+    font-size: 1rem;
+    padding: .375rem .75rem;
+    border-color: rgba(183, 183, 183, .5);
+    border-radius: 4px
+}
+
+.bootstrap-select>.dropdown-toggle {
+    font-weight: 400;
+    color: #000 !important;
+    background-color: #fff !important;
+    box-shadow: none !important
+}
+
+.bootstrap-select .dropdown-toggle:focus,
+.bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
+    outline: 0 !important
+}
+
+.bootstrap-select .dropdown-item {
+    padding: .25rem 1rem
+}
+
+.bs-searchbox .form-control {
+    border-color: #e9ecef !important;
+    height: 2.5rem
+}
+
+.bootstrap-select .dropdown-menu li a.opt {
+    padding-left: 1.1rem
+}
+
+.dropdown-header {
+    font-weight: 600;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .8)
+}
+
+.bootstrap-select.show-tick .dropdown-menu span.check-mark {
+    position: absolute;
+    right: 10px !important;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    display: block;
+    text-align: center
+}
+
+.bootstrap-select .bs-ok-default:after {
+    display: block;
+    width: 18px;
+    line-height: 18px;
+    border: none;
+    height: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+    content: "\f00c";
+    font-family: FontAwesome;
+    display: none
+}
+
+.bootstrap-select.show-tick .dropdown-menu .selected span.check-mark:after {
+    display: block
+}
+
+.bootstrap-select>.dropdown-toggle,
+input.form-control,
+select.form-control {
+    height: 3rem
+}
+
+input.form-control-lg,
+select.form-control-lg {
+    height: calc(3.5rem + 0px)
+}
+
+input.form-control-sm,
+select.form-control-sm {
+    height: calc(2rem + 8px)
+}
+
+select.form-control {
+    background-image: url(../assets/img/dr_down.png) !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background-repeat: no-repeat !important;
+    background-size: 18px !important;
+    background-position: center right !important;
+    padding-right: 22px !important
+}
+
+.form-control:focus {
+    box-shadow: none;
+    color: #000
+}
+
+.form-control::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, .4)
+}
+
+.form-control::-moz-placeholder {
+    color: rgba(0, 0, 0, .4)
+}
+
+.form-control:-ms-input-placeholder {
+    color: rgba(0, 0, 0, .4)
+}
+
+.form-control::-ms-input-placeholder {
+    color: rgba(0, 0, 0, .4)
+}
+
+.form-control::placeholder {
+    color: rgba(0, 0, 0, .4)
+}
+
+.themecolor {
+    color: #0072bb
+}
+
+.themecolor:focus,
+.themecolor:hover {
+    color: #005e9b
+}
+
+.themecolor2 {
+    color: #e81123
+}
+
+.themecolor2:focus,
+.themecolor2:hover {
+    color: #0072bb
+}
+
+.themecolor3 {
+    color: #67b500
+}
+
+a.themecolor3:focus,
+a.themecolor3:hover {
+    color: #0072bb
+}
+
+.bgcolor1 {
+    background: #0072bb
+}
+
+.bgcolor2 {
+    background: #e81123
+}
+
+.bgdarklight {
+    background: #e4e4e4
+}
+
+.mt2 {
+    margin-top: 2rem
+}
+
+.mb2 {
+    margin-bottom: 2rem
+}
+
+.pt2 {
+    padding-top: 2rem
+}
+
+.pb2 {
+    padding-bottom: 2rem
+}
+
+.top {
+    top: 0
+}
+
+.bottom {
+    bottom: 0
+}
+
+.right {
+    right: 0
+}
+
+.left {
+    left: 0
+}
+
+.f-size {
+    font-size: 1.2rem
+}
+
+.f-size1 {
+    font-size: 1.1rem
+}
+
+.overflow-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.two-row-item>div:not(:first-child) {
+    margin-top: 2.5rem
+}
+
+.dropdown-menu {
+    font-size: 1rem;
+    border-radius: 0;
+    border: 1px solid #c5c5c5
+}
+
+.dropdown-top-border {
+    border-top: 4px solid #0072bb
+}
+
+.dropdown-toggle::after {
+    vertical-align: middle;
+    border: 0;
+    content: "\f107";
+    font-family: fontAwesome
+}
+
+.cstm-dropdown-menu {
+    padding: 0 0
+}
+
+.cstm-dropdown-menu .dropdown-item {
+    padding: .75rem 1.5rem .6rem .8rem;
+    border-bottom: 1px solid #c5c5c5
+}
+
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background: 0 0;
+    color: #0072bb
+}
+
+.box-shadow {
+    box-shadow: 0 5px 9px 0 rgba(0, 0, 0, .16)
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+    margin: 0;
+    padding: 0 !important;
+    background: #fff;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #000;
+    font-size: 1.75rem;
+    border-radius: 0;
+    outline: 0;
+    font-weight: 700;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    margin-top: -1.575rem;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, .16)
+}
+
+.owl-carousel .owl-nav button.owl-next.disabled,
+.owl-carousel .owl-nav button.owl-prev.disabled {
+    background: #fff;
+    color: #d4d4d4;
+    font-size: 1.75rem;
+    cursor: not-allowed
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: #0072bb;
+    color: #fff;
+    text-decoration: none
+}
+
+.owl-carousel .owl-nav button.owl-next {
+    right: -15px
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+    left: -15px
+}
+
+.our-team .owl-dots,
+.owl-nav button span,
+.partner-logos .owl-dots {
+    display: none
+}
+
+.owl-nav .owl-next:after {
+    content: "\f138";
+    font-family: fontawesome;
+    content: "\f105"
+}
+
+.owl-nav .owl-prev:after {
+    font-family: fontawesome;
+    content: "\f104"
+}
+
+.owl-nav .owl-next:after,
+.owl-nav .owl-prev:after {
+    line-height: 1.5rem;
+    display: block
+}
+
+.owl-theme .owl-dots .owl-dot {
+    outline: 0;
+    display: none
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: #9e9e9e
+}
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: #0072bb
+}
+
+.owl-theme .owl-dots .owl-dot span {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-bottom: 0;
+    top: 0
+}
+
+.owl-theme .owl-nav {
+    margin-top: 0
+}
+
+.home-header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0
+}
+
+.home-header .topbar {
+    border-bottom: 1px solid rgba(255, 255, 255, .43)
+}
+
+.logo img {
+    max-height: 50px
+}
+
+.topbar {
+    border-bottom: 1px solid rgba(0, 0, 0, .35)
+}
+
+.topbar-links {
+    font-size: 1rem
+}
+
+.home-header .topbar-links {
+    font-size: 1rem;
+    color: #fff
+}
+
+.topbar-links .list-inline-item:not(:last-child) {
+    margin-right: 3rem
+}
+
+.topbar-links .list-inline-item>a {
+    line-height: 1.2
+}
+
+.flag-icon {
+    width: 1.75rem;
+    line-height: inherit;
+    border: 1px solid #0072bb;
+    background-size: cover;
+    background-position: left top
+}
+
+.home-header .topbar-links .list-inline-item>a:focus,
+.home-header .topbar-links .list-inline-item>a:hover {
+    color: #e1dddd
+}
+
+.topbar-links .list-inline-item>a:focus,
+.topbar-links .list-inline-item>a:hover {
+    color: #0072bb
+}
+
+.home-header .navbar .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .8)
+}
+
+.navbar .navbar-nav .nav-link {
+    line-height: 1.4;
+    font-size: 1rem;
+    padding: .5rem 1.9rem;
+    position: relative;
+    z-index: 999
+}
+
+.navbar .nav-item.show .nav-link,
+.navbar .nav-item:focus .nav-link,
+.navbar .nav-item:hover .nav-link {
+    color: #e81123;
+    background: #fff
+}
+
+.home-header .navbar .nav-item .dropdown-menu {
+    margin-top: -1px;
+    z-index: 995;
+    margin-left: 0;
+    border: none
+}
+
+.navbar .nav-item .dropdown-menu {
+    padding: 1rem 0
+}
+
+.navbar .navbar-nav .dropdown-toggle::after {
+    margin-left: .5rem;
+    font-size: inherit
+}
+
+.navbar .navbar-nav .dropdown-item {
+    padding: .5rem 1rem;
+    color: rgba(0, 0, 0, .65);
+    font-size: .9rem
+}
+
+.navbar .navbar-nav .dropdown-item:focus,
+.navbar .navbar-nav .dropdown-item:hover {
+    color: #e81123
+}
+
+.navbar .navbar-nav .dropdown-item h5 {
+    font-size: 1.05rem
+}
+
+.navbar .navbar-nav .dropdown-item p {
+    font-weight: 400
+}
+
+.navbar .navbar-nav .dropdown-item span {
+    min-width: 21px
+}
+
+.header-btn .btn {
+    font-size: 1rem;
+    padding: .46rem 1.75rem
+}
+
+.header-btn .dropdown-menu {
+    width: 100%
+}
+
+.banner {
+    padding-top: 15rem;
+    padding-bottom: 8rem;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.search-form-col h1 {
+    margin-bottom: 2rem;
+    font-size: 2.2rem
+}
+
+.search-form-col form .form-search-row {
+    color: #000
+}
+
+.advSearchCol,
+.search-form-col .form-group {
+    transition: ease-in-out .3s;
+    -webkit-transition: ease-in-out .3s;
+    -moz-transition: ease-in-out .3s;
+    -ms-transition: ease-in-out .3s
+}
+
+.form-search-row .form-control {
+    border-radius: 0
+}
+
+.searchcol .form-control {
+    border: none
+}
+
+.adActive,
+.selectfieldcol {
+    -ms-flex: 0 0 0%;
+    flex: 0 0 0%;
+    max-width: 0%;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    opacity: 0
+}
+
+.searchsubmit {
+    margin-left: -1px
+}
+
+.adActive {
+    height: 0
+}
+
+.form-search-row .form-control::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, .79)
+}
+
+.form-search-row .form-control::-moz-placeholder {
+    color: rgba(0, 0, 0, .79)
+}
+
+.form-search-row .form-control:-ms-input-placeholder {
+    color: rgba(0, 0, 0, .79)
+}
+
+.form-search-row .form-control::-ms-input-placeholder {
+    color: rgba(0, 0, 0, .79)
+}
+
+.form-search-row .form-control::placeholder {
+    color: rgba(0, 0, 0, .79)
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+    border-radius: 4px
+}
+
+.selectCol .bootstrap-select {
+    border: none;
+    border-left: 1px solid #ccc
+}
+
+.selectCol .bootstrap-select>.dropdown-toggle {
+    border-radius: 0
+}
+
+.bootstrap-select>.dropdown-toggle {
+    border-radius: 4px
+}
+
+.bootstrap-select .dropdown-menu li:first-child .check-mark {
+    display: none !important
+}
+
+.bootstrap-select {
+    border: 1px solid #dbdbdb
+}
+
+.searchsubmit .searchBtn {
+    font-size: 1.75rem;
+    padding: .5rem 1.25rem;
+    height: 3rem;
+    border-radius: 0;
+}
+
+.advanceSearch .btn {
+    border: 1px solid #fff;
+    color: #fff;
+    background: 0 0
+}
+
+.advSearch .form-group {
+    margin-bottom: 1.5rem
+}
+
+.LessMoreOptions[aria-expanded=false] .moreFields,
+.LessMoreOptions[aria-expanded=true] .lessFields {
+    display: inline-block
+}
+
+.LessMoreOptions[aria-expanded=false] .lessFields,
+.LessMoreOptions[aria-expanded=true] .moreFields {
+    display: none
+}
+
+.LessMoreOptions[aria-expanded=true] em:before {
+    content: "\f106"
+}
+
+.selectToCol select {
+    border-radius: 0 4px 4px 0
+}
+
+.selectFromCol select {
+    border-right: none;
+    border-radius: 4px 0 0 4px
+}
+
+.servicesCol h5 {
+    font-size: 1.25rem
+}
+
+.servicesCol p:last-child {
+    margin-bottom: 0
+}
+
+.sects-bg {
+    background: #f2f3f3
+}
+
+.internal-page-content {
+    padding-bottom: 5rem
+}
+
+.section-title {
+    margin-bottom: 1.5rem
+}
+
+.sectTitle {
+    font-size: 2rem
+}
+
+.sectTitle span {
+    color: #0072bb
+}
+
+.buCarTabs {
+    border-bottom-color: rgba(0, 0, 0, .5);
+    margin-bottom: 2rem
+}
+
+.buCarTabs .nav-item {
+    margin-bottom: -2px;
+    margin-right: 4rem
+}
+
+.buCarTabs .nav-link {
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 1.01rem;
+    padding: 0 0 .75rem;
+    border-bottom: 4px solid transparent;
+    line-height: 1.2
+}
+
+.buCarTabs .nav-item.show .nav-link,
+.buCarTabs .nav-link.active,
+.buCarTabs .nav-link:focus,
+.buCarTabs .nav-link:hover {
+    color: #0072bb;
+    background-color: transparent;
+    border-bottom-color: #0072bb
+}
+
+.buCarTabs .nav-item.show .nav-link,
+.buCarTabs .nav-link.active {
+    font-weight: 700
+}
+
+.bucSliderCol figure {
+    margin-bottom: .8rem;
+    min-height: 54px
+}
+
+.bucSliderCol figure img {
+    max-height: 54px
+}
+
+.bucSliderCol h5 {
+    font-size: 1.05rem
+}
+
+.bucSlider .owl-nav button.owl-next,
+.bucSlider .owl-nav button.owl-prev {
+    top: calc(50% - 2.5rem)
+}
+
+.bucSlider .owl-dots .owl-dot {
+    display: inline-block
+}
+
+.cars-parts .item,
+.featured-uc-slider .item,
+.offered-service .item,
+.popular-uc-slider .item {
+    padding: 7px 7px 15px
+}
+
+.featured-uc-slider .item figure>div {
+    padding-top: 78%
+}
+
+.bgImg {
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+.featured-uc-slider .item figure figcaption {
+    left: 0;
+    right: 0;
+    top: 0;
+    line-height: 1;
+    font-size: .85rem
+}
+
+.cars-parts .item h5,
+.featured-uc-slider .item h5,
+.offered-service .item h5,
+.popular-uc-slider .item h5 {
+    font-size: 1.15rem
+}
+
+.car-price {
+    color: #67b500
+}
+
+.comparison-col {
+    padding-top: 2rem;
+    padding-bottom: 2rem
+}
+
+.comparison-col h4 {
+    font-size: 1.7rem
+}
+
+.comparison-col h4 span {
+    font-size: 80%
+}
+
+.comparsn-logo span {
+    width: 3rem;
+    text-align: center;
+    line-height: 3rem;
+    font-size: 1.5rem
+}
+
+.comparsn-logo {
+    bottom: 1rem;
+    left: calc(50% - 1.5rem)
+}
+
+.sell-car-col h4 {
+    font-size: 2.34rem
+}
+
+.sell-car-col p {
+    font-size: 1.2rem
+}
+
+.sell-car-btn .btn {
+    font-size: 1.75rem
+}
+
+.popular-uc-slider .item figure {
+    min-height: 140px
+}
+
+.cars-parts .item figure {
+    min-height: 161px
+}
+
+.offered-service .item figure {
+    min-height: 161px
+}
+
+.view-all-part {
+    min-width: 17rem
+}
+
+footer.footer {
+    background: rgba(0, 0, 0, .8)
+}
+
+.address-col h5 {
+    font-size: 1.6rem
+}
+
+.address-col ul li:not(:last-child) {
+    margin-bottom: .5rem
+}
+
+.address-col ul li em {
+    width: 1.3rem;
+    color: #8e8e8e;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-right: 1.25rem;
+    line-height: inherit
+}
+
+.subscribeForm {
+    margin-bottom: 2.6rem
+}
+
+.subscribeForm .btn {
+    color: #fff;
+    background: #67b500
+}
+
+.social-media-links .list-inline-item:not(:last-child) {
+    margin-right: .75rem
+}
+
+.social-media-links li a {
+    width: 2.5rem;
+    line-height: 2.5rem;
+    background: #8e8e8e;
+    font-size: 1.4rem;
+    color: #fff
+}
+
+.social-media-links li a.fa-facebook:hover {
+    background-color: #3b5998
+}
+
+.social-media-links li a.fa-twitter:hover {
+    background-color: #38a1f3
+}
+
+.social-media-links li a.fa-linkedin:hover {
+    background-color: #0077b5
+}
+
+.social-media-links li a.fa-instagram:hover {
+    background-color: #3f729b
+}
+
+.footer-copyright {
+    margin-top: 3.75rem;
+    color: rgba(255, 255, 255, .69)
+}
+
+.footer-copyright ul li:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, .68);
+    line-height: 1;
+    padding-right: .8rem
+}
+
+.leftsidebar-bg {
+    background: #f7f7f7
+}
+
+#searchResultFilter .card {
+    border: none;
+    border-bottom: 1px solid #bababa;
+    border-radius: 0
+}
+
+#searchResultFilter .card-header {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    line-height: 1.4;
+    border-bottom: none;
+    border-radius: 0
+}
+
+#searchResultFilter .card-header a:after {
+    font-family: fontAwesome;
+    position: absolute;
+    right: 1rem;
+    font-size: 1.3rem
+}
+
+#searchResultFilter .card-header a[aria-expanded=false]:after {
+    content: "\f105"
+}
+
+#searchResultFilter .card-header a[aria-expanded=true]:after {
+    content: "\f107"
+}
+
+.card-body {
+    border-top: 1px solid #bababa
+}
+
+#searchResultFilter .card-header a figure {
+    width: 1.5rem;
+    margin-right: .75rem;
+    line-height: 1
+}
+
+#searchResultFilter .card-header a span small {
+    color: #a2a2a2
+}
+
+#searchResultFilter .form-group .form-control {
+    min-height: auto;
+    height: 30px;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important
+}
+
+#searchResultFilter .form-group button {
+    padding: 0 .5rem
+}
+
+.carselectlist li:not(:last-child) {
+    margin-bottom: .75rem
+}
+
+.searchbyfilter .card-header>a {
+    padding-right: 1rem
+}
+
+.searchbyfilter .card-header>a:after {
+    position: absolute;
+    right: 1.3rem;
+    font-size: 1.75rem
+}
+
+.searchbyfilter .card-header>a[aria-expanded=false]:after {
+    content: "\f105";
+    font-family: fontAwesome
+}
+
+.searchbyfilter .card-header>a[aria-expanded=true]:after {
+    content: "\f107";
+    font-family: fontAwesome
+}
+
+.breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    border-radius: 0;
+    color: #000;
+    font-size: 1.05rem
+}
+
+.breadcrumb-item.active {
+    color: #0072bb
+}
+
+.list-grid-col ul li a {
+    padding: .25rem 0 .25rem 1rem
+}
+
+.list-grid-col ul li a.active {
+    color: #0072bb
+}
+
+.viewgallery {
+    background: rgba(0, 0, 0, .55);
+    color: rgba(255, 255, 255, .72);
+    font-size: .7rem
+}
+
+.featuredlabel {
+    line-height: 1.3
+}
+
+.lcPrice {
+    font-size: 1.375rem
+}
+
+.listingCar-desc ul li {
+    font-size: .9rem;
+    line-height: 1
+}
+
+.listingCar-desc ul li.list-inline-item:not(:last-child) {
+    margin-right: .75rem;
+    border-right: 1px solid #000;
+    padding-right: 1rem
+}
+
+.lc-favorite {
+    background: #ececec
+}
+
+.contactbtn {
+    padding: .45rem 1rem;
+    font-size: .85rem
+}
+
+.listingtab {
+    margin-right: 0;
+    margin-left: 0
+}
+
+.gridingCol {
+    margin-right: -15px;
+    margin-left: -15px
+}
+
+.gridingCol .listingCol {
+    -ms-flex: 0 0 33.333%;
+    flex: 0 0 33.333%;
+    max-width: calc(33.333% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: .75rem !important
+}
+
+.gridingCol .lc-contact,
+.gridingCol .lc-published,
+.gridingCol .listingCar,
+.gridingCol .listingCar-desc,
+.gridingCol .listingCar-descCar,
+.gridingCol .listingCar-price,
+.gridingCol .listingCar-title {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%
+}
+
+.gridingCol .listingCar {
+    margin-bottom: .75rem;
+    padding-right: 1rem !important
+}
+
+.gridingCol .listingCar figure img {
+    width: 100%;
+    height: 180px
+}
+
+.gridingCol .listingCar-title {
+    margin-bottom: .5rem !important
+}
+
+.gridingCol .listingCar-title h5 {
+    font-size: 1.15rem;
+    text-orientation: inherit;
+    text-rendering: optimizeSpeed;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.gridingCol .lc-published {
+    font-size: .85rem;
+    margin-bottom: .5rem
+}
+
+.gridingCol .contactbtn {
+    width: 100%;
+    padding: .45rem 1rem;
+    font-size: .85rem
+}
+
+.gridingCol .listingCar-price {
+    position: absolute;
+    bottom: 60px;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
+    -ms-flex-align: center !important;
+    align-items: center !important
+}
+
+.gridingCol .aboutcarlist,
+.gridingCol .listingCar-place {
+    margin-bottom: .65rem !important
+}
+
+.gridingCol .listingCar-desc ul li.list-inline-item:not(:last-child) {
+    margin-right: .5rem;
+    padding-right: .6rem
+}
+
+.gridingCol .listingCar-title .lcPrice {
+    display: none !important
+}
+
+.gridingCol .lc-favorite {
+    margin-top: -9px;
+    padding: 0 !important;
+    background: 0 0;
+    position: absolute;
+    margin-left: -20px
+}
+
+.notifyForm {
+    background: rgba(0, 114, 187, .05)
+}
+
+.notifySubBtn {
+    background: #d35400
+}
+
+.carList-pager .page-link {
+    padding: .1rem .5rem;
+    color: #007bff;
+    background: 0 0;
+    border: none
+}
+
+.carList-pager .page-link:focus {
+    box-shadow: none
+}
+
+.carList-pager .page-link:hover {
+    color: #0056b3;
+    text-decoration: none;
+    background: 0 0;
+    border: none
+}
+
+.sellCartext h4 {
+    font-size: 2.25rem
+}
+
+.sellCartext p {
+    font-size: 1.25rem
+}
+
+.sell-arrow-right {
+    margin-right: -130px
+}
+
+.sell-arrow-left {
+    margin-left: -120px
+}
+
+#advanceSearch {
+    color: #000
+}
+
+.detail-page-title {
+    font-size: 1.2rem
+}
+
+.zoomDetailImg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem
+}
+
+.sellerinfo-left h6 {
+    color: #000
+}
+
+p.bestSeller {
+    color: #ffb300
+}
+
+.sellerinfo-right .carPrice {
+    font-size: 2rem;
+    line-height: 1
+}
+
+.sellerContact-left ul li.list-inline-item:not(:last-child) {
+    margin-right: 1.5rem
+}
+
+.sellerContact-left ul li a em {
+    font-size: 1.5rem
+}
+
+.sellerContact-left ul li a img {
+    right: -6px;
+    bottom: -3px
+}
+
+.sellerContact-left {
+    width: 50%
+}
+
+.sellerContact-right {
+    width: 50%
+}
+
+.themebtn4 {
+    border-color: #b8b8b8;
+    color: #b8b8b8
+}
+
+.sellerContact-right .btn {
+    font-size: 1rem;
+    width: 80%;
+    padding-left: 1rem;
+    padding-right: 1rem
+}
+
+.sellerContact-right .btn em {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-right: 7px
+}
+
+.sellercarInforow {
+    border-top: 1px solid #6d6d6d
+}
+
+.sellercarInfo {
+    border-left: 1px solid #6d6d6d;
+    border-bottom: 1px solid #6d6d6d
+}
+
+.sellercarInfo:nth-child(3n) {
+    border-right: 1px solid #6d6d6d
+}
+
+.productDetialCol>div {
+    border-radius: 1rem 1rem 0 0
+}
+
+.car-dealer-list-desc ul li {
+    line-height: 6px
+}
+
+.sharelist {
+    font-size: 1.14rem
+}
+
+.car-dealer-list-desc ul .ph-num-li-2 {
+    position: absolute;
+    bottom: .2rem;
+    right: 1rem
+}
+
+.last-updated {
+    position: absolute;
+    bottom: .2rem
+}
+
+.cr-list-title {
+    text-transform: capitalize
+}
+
+.sharelist .list-inline-item:not(:last-child) {
+    margin-right: 1rem
+}
+
+.carinfoTabs-col ul li:not(:last-child) {
+    margin-right: 0;
+    border-right: 1px solid #ffff
+}
+
+.carinfoTabs-col ul li a {
+    padding: 1rem 1.5rem 1.1rem 1.5rem;
+    font-size: 1.15rem;
+    display: block;
+    position: relative
+}
+
+.carinfoTabs-col ul li a:focus,
+.carinfoTabs-col ul li a:hover {
+    color: #cdcdcd
+}
+
+.carinfoTabs-col ul li a.active:after {
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #0072bb;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute
+}
+
+.carinfodetail-row .card {
+    padding: 2rem;
+    margin-bottom: 1.25rem
+}
+
+.carInfotitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.75rem
+}
+
+.carInfotitle img {
+    margin-right: 1rem
+}
+
+.carinfodetail-row {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2
+}
+
+.carinfodetail-row .card table tr td:first-child,
+.taxi-comp-col table tr td:first-child {
+    padding-left: 0
+}
+
+.carinfodetail-row .card table tr:last-child td {
+    padding-bottom: 0
+}
+
+.carinfodetail-row .card table tr:first-child td,
+.taxi-comp-col table tr:first-child td {
+    padding-top: 0;
+    border-top: none
+}
+
+.carinfodetail-row .card table tr td {
+    padding: .5rem .75rem
+}
+
+.carinfodetail-row .cardatainfo table tr td {
+    padding-top: .75rem
+}
+
+.carinfodetail-row .cardatainfo table tr td:last-child {
+    text-align: right;
+    padding-right: 0
+}
+
+.featureslistitem {
+    margin-bottom: 2rem
+}
+
+.featureslistitem img {
+    margin-right: 5px
+}
+
+.cartagsinfo ul li span {
+    font-size: 1rem
+}
+
+.taxi-comp-col table tr td {
+    font-size: 1.35rem;
+    padding-right: 2rem;
+    padding-bottom: 1.5rem;
+    vertical-align: middle
+}
+
+.seller-comments-col {
+    font-size: 1.15rem
+}
+
+.seller-comments-col ul li {
+    padding-left: 1.5rem;
+    position: relative
+}
+
+.seller-comments-col ul li:before {
+    content: '*';
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    line-height: 1.5;
+    top: 3px
+}
+
+.similar-post-col figure>div {
+    padding-top: 78%
+}
+
+.similar-post-col .featuredlabel {
+    font-size: .9rem
+}
+
+.similar-post-col h5 {
+    font-size: 1rem
+}
+
+.similar-post-col .car-country,
+.similar-post-col .car-price {
+    font-size: 1rem
+}
+
+.internal-banner {
+    padding: 2.5rem 0;
+    font-size: 1.15rem
+}
+
+.saved-cars {
+    height: 260px
+}
+
+.saved-cars1 {
+    height: 260px
+}
+
+.saved-cars2 {
+    height: 260px
+}
+
+.saved-cars .media img {
+    max-width: 60px
+}
+
+.saved-cars1 .media img {
+    max-width: 60px
+}
+
+.saved-cars2 .media img {
+    max-width: 60px
+}
+
+.comparison-car-row h5 {
+    font-size: 1.4rem
+}
+
+.comparison-car-row p {
+    font-size: 1.2rem
+}
+
+.comp-table tbody tr td {
+    width: 33%
+}
+
+.compare-features .comp-table tbody tr td:not(:first-child) {
+    text-align: center
+}
+
+.newtags-form form .form-group label {
+    font-size: 1.1rem;
+    margin-bottom: .25rem
+}
+
+.posted-review:not(:first-child) {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid #ccc
+}
+
+.review-posted-time {
+    font-size: .9rem;
+    font-weight: 600
+}
+
+.prof-review {
+    line-height: 1
+}
+
+.prof-review a {
+    border-left: 1px solid #0072bb;
+    padding-left: .5rem
+}
+
+.user-profile table tr td {
+    padding-right: 10px;
+    padding-bottom: 5px
+}
+
+.user-profile table tr:last-child td {
+    padding-bottom: 0
+}
+
+.user-profile-detail {
+    font-size: .95rem
+}
+
+.user-profile-detail ul li:not(:last-child) {
+    margin-bottom: 1rem
+}
+
+.user-profile-detail ul li span em {
+    font-size: 1.2rem;
+    margin-top: 2px
+}
+
+.browse-cb {
+    color: #000
+}
+
+.bcbImg {
+    min-height: 50px
+}
+
+.bcbImg img {
+    max-height: 50px
+}
+
+.browse-cb ul li {
+    font-size: 1.01rem
+}
+
+.browse-cb ul li:not(:last-child) {
+    margin-bottom: 1.2rem
+}
+
+.browse-car-tabs .nav-link {
+    border: 1px solid #dfdfdf;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom: 3px solid transparent;
+    font-size: 1.15rem;
+    position: relative
+}
+
+.browse-car-tabs .nav-item .nav-link.active:after,
+.browse-car-tabs .nav-item .nav-link:hover:after,
+.browse-car-tabs .nav-item.show .nav-link:after {
+    content: '';
+    border-top: 12px solid #0072bb;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    bottom: -15px;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px
+}
+
+.browse-car-tabs .nav-item .nav-link:hover,
+.browse-car-tabs .nav-item.show .nav-link,
+.browse-car-tabs .nav-link.active {
+    color: #0072bb;
+    background-color: rgba(0, 114, 187, .08);
+    border-color: transparent;
+    border-bottom-color: #0072bb
+}
+
+.browse-car-by-sect .owl-carousel .owl-nav button.owl-next {
+    right: -60px
+}
+
+.browse-car-by-sect .owl-carousel .owl-nav button.owl-prev {
+    left: -60px
+}
+
+.sidebar-sect-title {
+    background: #e4e4e4;
+}
+
+.carselectlist {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 167px
+}
+
+#searchResultFilter ::-webkit-scrollbar {
+    width: 12px
+}
+
+#searchResultFilter ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 6px
+}
+
+#searchResultFilter ::-webkit-scrollbar-thumb {
+    background: #0072bb;
+    border-radius: 6px
+}
+
+#searchResultFilter ::-webkit-scrollbar-thumb:hover {
+    background: #e81123
+}
+
+::-webkit-scrollbar {
+    width: 12px !important
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey !important;
+    border-radius: 6px !important
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0072bb !important;
+    border-radius: 6px !important
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e81123 !important
+}
+
+.searchmorecity {
+    overflow: visible;
+    max-height: 100%
+}
+
+.car-dealer-img figure {
+    background: #f5f5f5
+}
+
+.car-dealer-list-desc span.badge {
+    font-size: .95rem;
+    margin-top: .35rem
+}
+
+.dealer-place {
+    color: #b1b1b1
+}
+
+.car-dealer-list-desc li:not(:last-child) {
+    margin-bottom: .5rem
+}
+
+.sidebar-input-group .form-control {
+    height: 37px;
+    border-color: #717171 !important
+}
+
+.searchIconBtn {
+    background: #717171;
+    border: none;
+    width: 35px;
+    padding: 0;
+    font-size: 1.15rem
+}
+
+.offered-services-sidebar {
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.offered-services-product {
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%;
+    max-width: 70%;
+}
+
+.sidebar-collpse-icon {
+    font-size: 1.5rem
+}
+
+.sidebar-collpse-icon[aria-expanded=true]:before {
+    content: "\f13a"
+}
+
+.offered-services-title {
+    font-size: 1.3rem;
+    background-color: #ddd;
+}
+
+.expand_success {
+    color: #000;
+}
+
+.expand_success a:active,
+.expand_success a:focus,
+.expand_success a:hover {
+    color: #000 !important
+}
+
+.offer-ctg-list {
+    margin-bottom: 0;
+}
+
+.offer-ctg-list .auto_parts_list_faq li a {
+    background: #ddd;
+    padding: 10px;
+    margin-bottom: 7px;
+    margin-left: 20px;
+    border-bottom: 1px solid transparent;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.offered-services-section a:focus,
+.offered-services-section a:hover {
+    color: #212529
+}
+
+.offer-ctg-list .auto_parts_list li.offerctgActive,
+.auto_parts_list_faq li.offerctgActive {
+    background-color: rgb(241 241 241 / 95%);
+    color: #000;
+}
+
+.offered-services-section .themecolor {
+    color: #212529
+}
+
+.offer-ctg-list .auto_parts_list_faq .custdropdown li a {
+    background: #fff;
+    padding: 0;
+    font-weight: 400
+}
+
+.offer-ctg-list .auto_parts_list_faq .custdropdown li p {
+    padding-left: 10px;
+    font-style: italic;
+    margin-left: 30px;
+    margin-top: 0;
+    margin-bottom: 7px;
+    font-size: 14px
+}
+
+.offer-ctg-list .auto_parts_list .offer-ctg-list>li:not(:last-child) {
+    margin-bottom: .9rem
+}
+
+.offer-ctg-list .custdropdown {
+    font-size: 1rem;
+    padding-left: 1rem
+}
+
+/* Sub Category Background Highlighting */
+.active_lia {
+    border-inline-start: 5px solid #0072BB;
+    padding: 2px 4px;
+    background-color: #ddd;
+    color: #000;
+}
+
+.active_element {
+    background-color: #ddd;
+    color: #000;
+}
+
+/* SMS Verification Modal */
+.sms-alert-content {
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 12px;
+}
+
+.sms-alert-title {
+    font-size: 1.2rem;
+    padding: 0 14px;
+    margin-top: 24px;
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 1.4rem;
+}
+
+.sms-alert-close span {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -40px;
+    font-size: 1.6rem;
+    color: red;
+}
+
+.sms-alert-icon {
+    margin: 32px auto;
+}
+
+.sms-alert-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.sms-modal-body {
+    padding: 0 1rem;
+}
+
+.sms-inputs-container {
+    width: 9.75rem;
+    margin: 16px auto 0;
+}
+
+input.sms-inputs {
+    width: 84%;
+    border: 2px solid #c3c3c3;
+    border-radius: 5px;
+    text-align: center;
+}
+
+@media (max-width: 425px) {
+    .sms-alert-content {
+        width: 320px;
+    }
+    .sms-alert-title {
+        font-size: 1.1rem;
+        margin-top: 12px;
+    }
+    .sms-alert-icon {
+        margin: 24px auto;
+    }
+    .sms-alert-icon img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Payment Section Start*/
+.btn-sechondary {
+    background-color: #67b500;
+}
+
+.payment-body {
+    padding: 0 40px;
+}
+
+.current-balance h6 {
+    text-align: center;
+}
+
+.payment-method {
+    padding: 10px 0;
+}
+
+.p1,
+.pay-dropdown {
+    display: inline-block;
+}
+
+.payment-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.payment-text p {
+    margin: 0;
+}
+
+/* Payment Section Responsive */
+@media (max-width:425px) {
+    .payment-body {
+        padding: 0px 10px;
+    }
+    .current-balance h6 {
+        margin-bottom: 1.2rem;
+    }
+    input[type=submit] {
+        padding-right: 0.5rem !important;
+        padding-left: 0.5rem !important;
+    }
+    .payment-text {
+        margin: 0 0 0 7px;
+    }
+    .payment-text p {
+        font-size: 10px;
+        font-weight: 400;
+    }
+    .pay-dropdown select {
+        font-size: 12px;
+    }
+}
+/* Payment Section Responsive End */
+
+/* Payment Section End*/
+
+.offer-ctg-list li .offerctgActive em:before {
+    content: "\f106";
+    font-family: fontAwesome;
+}
+
+.filter-option {
+    height: initial !important
+}
+
+.select-cont .flag-icon {
+    width: 20px;
+    line-height: inherit;
+    border: 1px solid #0072bb;
+    background-size: cover;
+    background-position: left top;
+    height: 16px;
+    vertical-align: sub;
+    margin-right: 6px
+}
+
+.offered-services-col figure div {
+    padding-top: 81%;
+    background-position: center;
+    background-size: auto
+}
+
+.offered-services-col {
+    color: #000;
+    margin-bottom: 16px;
+}
+
+.offered-services-col figure {
+    height: 170px;
+    overflow: hidden
+}
+
+.offered-services-col ul {
+    font-size: .85rem;
+    color: #959595
+}
+
+.offered-services-col ul li:not(:last-child) {
+    margin-bottom: 7px
+}
+
+.offered-services-col1 h5 {
+    font-size: 1.085rem
+}
+
+.serviceprices {
+    font-size: .91rem
+}
+
+.serviceprices del {
+    color: #707070
+}
+
+.shipping-text {
+    font-size: .85rem
+}
+
+.services-slider.owl-carousel .owl-nav button.owl-next {
+    right: -1.5rem
+}
+
+.services-slider.owl-carousel .owl-nav button.owl-prev {
+    left: -1.5rem
+}
+
+.spare-parts-section .offered-services-sidebar ul li:not(:last-child) {
+    margin-bottom: .65rem
+}
+
+.lSPager li,
+.productImgCol .lightSlider li {
+    border: 1px solid #ebebeb
+}
+
+.detail-table-categ tr td:first-child {
+    padding-left: 1.5rem
+}
+
+.detail-table-categ tr td:last-child {
+    padding-right: 1.5rem
+}
+
+.detail-table-categ tr:last-child td {
+    border-bottom: 1px solid #dee2e6
+}
+
+.similar-Ads-col .offered-services-col:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+    margin-top: 0
+}
+
+.signInbg h1 {
+    font-size: 2rem
+}
+
+.facebook-btn {
+    background: #3b5998
+}
+
+.facebook-btn:focus,
+.facebook-btn:hover {
+    background: #1b3f8e
+}
+
+.google-btn {
+    background: #e81123
+}
+
+.google-btn:focus,
+.google-btn:hover {
+    background: #d41525
+}
+
+.connect-with-social em {
+    font-size: 1.75rem
+}
+
+.signIn-note {
+    font-size: 1.075rem
+}
+
+.signIn-form .input-group {
+    border: 1px solid #d9dbdb
+}
+
+.signIn-form .input-group em {
+    width: 3rem;
+    font-size: 1.25rem;
+    color: rgba(0, 0, 0, .5)
+}
+
+.signIn-form .input-group .form-control,
+.signup-form .form-group .form-control {
+    font-size: 1rem;
+    height: 3.1rem
+}
+
+.signIn-btn[type=submit] {
+    font-size: 1.25rem;
+    line-height: 1;
+    padding: .5rem 2rem .7rem
+}
+
+.signup-form .form-group .form-control {
+    box-shadow: 0 7px 12px rgba(0, 0, 0, .16);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, .16);
+    border: 1px solid #d9dbdb
+}
+
+.sign-up-tabs .nav-item .nav-link {
+    font-size: 1.05rem;
+    color: #000;
+    border-color: #e9e9e9;
+    padding: .8rem 2rem;
+    border-bottom: 3px solid transparent;
+    border-left: 0;
+    border-right: 0;
+    position: relative
+}
+
+.sign-up-tabs.nav-tabs .nav-link.active {
+    color: #000;
+    background-color: #f2f3f3;
+    border-color: transparent;
+    border-bottom: 3px solid #707070
+}
+
+.sign-up-tabs.nav-tabs .nav-link.active:after {
+    content: '';
+    bottom: -14px;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute;
+    border-top: 11px solid #707070;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent
+}
+
+.signuo-field-icon {
+    width: 3rem;
+    color: rgba(0, 0, 0, .5);
+    font-size: 1.25rem
+}
+
+.connect-with-other,
+.signup-form .signIn-group {
+    padding-left: 4rem
+}
+
+.phone-code {
+    max-width: 100px
+}
+
+.login-with-social li a {
+    width: 2.25rem;
+    line-height: 2.25rem;
+    font-size: 1.25rem
+}
+
+.login-with-social .fa-facebook {
+    background: #3b5998
+}
+
+.login-with-social .fa-facebook:hover {
+    background: #2c467c
+}
+
+.login-with-social .fa-google {
+    background: #e81123
+}
+
+.login-with-social .fa-google:hover {
+    background: #c00918
+}
+
+.signup-note {
+    color: rgba(0, 0, 0, .5)
+}
+
+.select2-container--bootstrap4 .select2-selection--single {
+    height: calc(3rem + 0px) !important
+}
+
+.select2-container--bootstrap4 .select2-selection--single .select2-selection__rendered {
+    line-height: 3rem;
+    padding-left: 1rem
+}
+
+.ad-publishing-plolicy-bg {
+    background: #f2f3f3;
+    font-size: .9rem
+}
+
+.mandatory-note {
+    color: rgba(0, 0, 0, .5);
+    font-size: .85rem
+}
+
+label sup {
+    top: -.25em;
+    margin-left: .25rem;
+    font-weight: 700
+}
+
+.features-checkboxes .custom-control-label {
+    font-size: .91rem
+}
+
+.suggestions-tags .badge {
+    font-size: .8rem;
+    font-weight: 600;
+    padding-top: .7rem;
+    padding-bottom: .7rem
+}
+
+.add-suggestion>p {
+    color: rgba(0, 0, 0, .5)
+}
+
+.upload-note {
+    font-size: .75rem
+}
+
+.about-message-field {
+    font-size: .8rem
+}
+
+.upload-photos .custom-file {
+    height: 3rem
+}
+
+.upload-photos .custom-file .custom-file-input {
+    height: 3rem
+}
+
+.upload-photos .custom-file .custom-file-label,
+.upload-photos .custom-file .custom-file-label::after {
+    height: 3rem;
+    padding: 0 .75rem;
+    line-height: 3rem;
+    overflow: hidden
+}
+
+.contact-info .input-group-text {
+    width: 3.25rem;
+    font-size: 1.2rem
+}
+
+.car-list-row {
+    background: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0
+}
+
+.car-info-list-col {
+    border-right: 1px solid #e0e0e0;
+    padding-bottom: 15px
+}
+
+.car-list-active {
+    background: #fff
+}
+
+.car-info-list-col:first-child .post-ad-modal-title {
+    padding: 0 1.5rem
+}
+
+.post-ad-modal-title {
+    font-size: 1.1rem;
+    padding: 0 20px 0 55px;
+    height: 70px;
+    border-bottom: 1px solid #e0e0e0;
+    text-transform: uppercase;
+    position: relative;
+    margin: 0 -15px
+}
+
+.car-list-active .post-ad-modal-title {
+    color: #0072bb
+}
+
+.active_lia {
+    border-inline-start: 5px solid #0072BB;
+    padding: 2px 4px;
+    background-color: #d3d3d3;
+    color: #000;
+}
+
+.active_element {
+    background-color: #d3d3d3;
+    color: #000;
+}
+
+/* .post-ad-modal-title:after, */
+.post-ad-modal-title:before {
+    border-bottom: 10px solid transparent;
+    border-left-width: 16px;
+    border-left-style: solid;
+    border-top: 10px solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 26px;
+    -moz-transform: scale(.9999);
+    -webkit-transform: scale(.9999);
+    transform: scale(.9999);
+}
+
+.car-list-active .post-ad-modal-title:before {
+    border-left-color: #fff
+}
+
+.post-ad-modal-title:before {
+    border-left-color: #f0f0f0;
+    right: -17px;
+    z-index: 2;
+    padding-right: 10px;
+}
+
+/* .post-ad-modal-title:after {
+    border-left-color: #d9d9d9;
+    right: -17px;
+    z-index: 1
+} */
+
+.postformmodal .modal-content {
+    border-radius: .5rem
+}
+
+div.modal-header {
+    align-items: center;
+    font-size: 1rem;
+    color: #000;
+}
+.post-modal-list {
+    max-height: 500px;
+    overflow-x: auto;
+    padding-right: 11px
+}
+
+.post-modal-list .heading h5 {
+    font-size: 1.1rem
+}
+
+.car-info-list-col ul li.heading:not(:first-child) {
+    margin-top: .6rem
+}
+
+.car-info-list-col ul li a {
+    display: block;
+    border: 1px solid transparent;
+    padding: 5px 10px
+}
+
+.car-info-list-col ul li.list-active a {
+    color: #0072bb;
+    border: 1px solid #0072bb
+}
+
+.car-info-list-col ul.version-listings li {
+    margin-bottom: .6rem
+}
+
+.car-info-list-col ul.version-listings li a {
+    border: none;
+    padding: 0
+}
+
+.car-make-logo {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url(https://wsa4.pakwheels.com/assets/car-brands-40-69de2b1e4a56dfa459f00bd215d9fa2f.png) no-repeat 0 -480px;
+    vertical-align: -9px;
+    margin: -6px 0 -6px -6px
+}
+
+.car-make-logo.honda {
+    background-position: 0 0
+}
+
+.car-make-logo.toyota {
+    background-position: 0 -40px
+}
+
+.car-make-logo.suzuki {
+    background-position: 0 -80px
+}
+
+.car-make-logo.daihatsu {
+    background-position: 0 -120px
+}
+
+.car-make-logo.audi {
+    background-position: 0 -160px
+}
+
+.car-make-logo.mercedes-benz {
+    background-position: 0 -200px
+}
+
+.car-make-logo.bmw {
+    background-position: 0 -240px
+}
+
+.car-make-logo.nissan {
+    background-position: 0 -280px
+}
+
+.car-make-logo.land-rover {
+    background-position: 0 -320px
+}
+
+.car-make-logo.dfsk {
+    background-position: 0 -360px
+}
+
+.car-make-logo.changan {
+    background-position: 0 -400px
+}
+
+.car-make-logo.faw,
+.car-make-logo.roma {
+    background-position: 0 -440px
+}
+
+.car-make-logo.others {
+    background-position: 0 -480px
+}
+
+.car-make-logo.mitsubishi {
+    background-position: 0 -520px
+}
+
+.car-make-logo.hyundai {
+    background-position: 0 -560px
+}
+
+.car-make-logo.daewoo {
+    background-position: 0 -600px
+}
+
+.car-make-logo.kia {
+    background-position: 0 -640px
+}
+
+.car-make-logo.chevrolet {
+    background-position: 0 -680px
+}
+
+.car-make-logo.mazda {
+    background-position: 0 -720px
+}
+
+.car-make-logo.jeep,
+.car-make-logo.kaiser {
+    background-position: 0 -760px
+}
+
+.car-make-logo.lexus {
+    background-position: 0 -800px
+}
+
+.car-make-logo.porsche {
+    background-position: 0 -840px
+}
+
+.car-make-logo.subaru {
+    background-position: 0 -880px
+}
+
+.car-make-logo.adam {
+    background-position: 0 -920px
+}
+
+.car-make-logo.datsun {
+    background-position: 0 -960px
+}
+
+.car-make-logo.ferrari {
+    background-position: 0 -1000px
+}
+
+.car-make-logo.fiat {
+    background-position: 0 -1040px
+}
+
+.car-make-logo.ford {
+    background-position: 0 -1080px
+}
+
+.car-make-logo.range-rover {
+    background-position: 0 -1120px
+}
+
+.car-make-logo.sogo {
+    background-position: 0 -1160px
+}
+
+.car-make-logo.golf,
+.car-make-logo.volkswagen {
+    background-position: 0 -1200px
+}
+
+.car-make-logo.jaguar {
+    background-position: 0 -1240px
+}
+
+.car-make-logo.volvo {
+    background-position: 0 -1280px
+}
+
+.car-make-logo.willys {
+    background-position: 0 -1320px
+}
+
+.car-make-logo.vauxhall {
+    background-position: 0 -1360px
+}
+
+.car-make-logo.triumph {
+    background-position: 0 -1400px
+}
+
+.car-make-logo.ssangyong {
+    background-position: 0 -1440px
+}
+
+.car-make-logo.smart {
+    background-position: 0 -1480px
+}
+
+.car-make-logo.sokon {
+    background-position: 0 -1520px
+}
+
+.car-make-logo.skoda {
+    background-position: 0 -1560px
+}
+
+.car-make-logo.scion {
+    background-position: 0 -1600px
+}
+
+.car-make-logo.saab {
+    background-position: 0 -1640px
+}
+
+.car-make-logo.royal-enfield {
+    background-position: 0 -1680px
+}
+
+.car-make-logo.rover {
+    background-position: 0 -1720px
+}
+
+.car-make-logo.rolls-royce {
+    background-position: 0 -1760px
+}
+
+.car-make-logo.renault {
+    background-position: 0 -1800px
+}
+
+.car-make-logo.proton {
+    background-position: 0 -1840px
+}
+
+.car-make-logo.pontiac {
+    background-position: 0 -1880px
+}
+
+.car-make-logo.plymouth {
+    background-position: 0 -1920px
+}
+
+.car-make-logo.peugeot {
+    background-position: 0 -1960px
+}
+
+.car-make-logo.opel {
+    background-position: 0 -2000px
+}
+
+.car-make-logo.oldsmobile {
+    background-position: 0 -2040px
+}
+
+.car-make-logo.moto-guzzi {
+    background-position: 0 -2080px
+}
+
+.car-make-logo.morris {
+    background-position: 0 -2120px
+}
+
+.car-make-logo.mini {
+    background-position: 0 -2160px
+}
+
+.car-make-logo.mg {
+    background-position: 0 -2200px
+}
+
+.car-make-logo.maserati {
+    background-position: 0 -2240px
+}
+
+.car-make-logo.lincoln {
+    background-position: 0 -2280px
+}
+
+.car-make-logo.lamborghini {
+    background-position: 0 -2320px
+}
+
+.car-make-logo.lada {
+    background-position: 0 -2360px
+}
+
+.car-make-logo.master {
+    background-position: 0 -2400px
+}
+
+.car-make-logo.jac {
+    background-position: 0 -2440px
+}
+
+.car-make-logo.isuzu {
+    background-position: 0 -2480px
+}
+
+.car-make-logo.hummer {
+    background-position: 0 -2520px
+}
+
+.car-make-logo.hino {
+    background-position: 0 -2560px
+}
+
+.car-make-logo.hillman {
+    background-position: 0 -2600px
+}
+
+.car-make-logo.golden-dragon {
+    background-position: 0 -2640px
+}
+
+.car-make-logo.gmc {
+    background-position: 0 -2680px
+}
+
+.car-make-logo.geely {
+    background-position: 0 -2720px
+}
+
+.car-make-logo.dodge {
+    background-position: 0 -2760px
+}
+
+.car-make-logo.daimler {
+    background-position: 0 -2800px
+}
+
+.car-make-logo.classic-cars {
+    background-position: 0 -2840px
+}
+
+.car-make-logo.citroen {
+    background-position: 0 -2880px
+}
+
+.car-make-logo.chrysler {
+    background-position: 0 -2920px
+}
+
+.car-make-logo.chery {
+    background-position: 0 -2960px
+}
+
+.car-make-logo.cadillac {
+    background-position: 0 -3000px
+}
+
+.car-make-logo.buick {
+    background-position: 0 -3040px
+}
+
+.car-make-logo.bentley {
+    background-position: 0 -3080px
+}
+
+.car-make-logo.austin {
+    background-position: 0 -3120px
+}
+
+.car-make-logo.alfa-romeo {
+    background-position: 0 -3160px
+}
+
+.make-listings li a:hover .honda {
+    background-position: -40px 0
+}
+
+.make-listings li a:hover .toyota {
+    background-position: -40px -40px
+}
+
+.make-listings li a:hover .suzuki {
+    background-position: -40px -80px
+}
+
+.make-listings li a:hover .daihatsu {
+    background-position: -40px -120px
+}
+
+.make-listings li a:hover .audi {
+    background-position: -40px -160px
+}
+
+.make-listings li a:hover .mercedes-benz {
+    background-position: -40px -200px
+}
+
+.make-listings li a:hover .bmw {
+    background-position: -40px -240px
+}
+
+.make-listings li a:hover .nissan {
+    background-position: -40px -280px
+}
+
+.make-listings li a:hover .land-rover {
+    background-position: -40px -320px
+}
+
+.make-listings li a:hover .dfsk {
+    background-position: -40px -360px
+}
+
+.make-listings li a:hover .changan {
+    background-position: -40px -400px
+}
+
+.make-listings li a:hover .faw,
+.make-listings li a:hover .roma {
+    background-position: -40px -440px
+}
+
+.make-listings li a:hover .others {
+    background-position: -40px -480px
+}
+
+.make-listings li a:hover .mitsubishi {
+    background-position: -40px -520px
+}
+
+.make-listings li a:hover .hyundai {
+    background-position: -40px -560px
+}
+
+.make-listings li a:hover .daewoo {
+    background-position: -40px -600px
+}
+
+.make-listings li a:hover .kia {
+    background-position: -40px -640px
+}
+
+.make-listings li a:hover .chevrolet {
+    background-position: -40px -680px
+}
+
+.make-listings li a:hover .mazda {
+    background-position: -40px -720px
+}
+
+.make-listings li a:hover .jeep,
+.make-listings li a:hover .kaiser {
+    background-position: -40px -760px
+}
+
+.make-listings li a:hover .lexus {
+    background-position: -40px -800px
+}
+
+.make-listings li a:hover .porsche {
+    background-position: -40px -840px
+}
+
+.make-listings li a:hover .subaru {
+    background-position: -40px -880px
+}
+
+.make-listings li a:hover .adam {
+    background-position: -40px -920px
+}
+
+.make-listings li a:hover .datsun {
+    background-position: -40px -960px
+}
+
+.make-listings li a:hover .ferrari {
+    background-position: -40px -1000px
+}
+
+.make-listings li a:hover .fiat {
+    background-position: -40px -1040px
+}
+
+.make-listings li a:hover .ford {
+    background-position: -40px -1080px
+}
+
+.make-listings li a:hover .range-rover {
+    background-position: -40px -1120px
+}
+
+.make-listings li a:hover .sogo {
+    background-position: -40px -1160px
+}
+
+.make-listings li a:hover .golf,
+.make-listings li a:hover .volkswagen {
+    background-position: -40px -1200px
+}
+
+.make-listings li a:hover .jaguar {
+    background-position: -40px -1240px
+}
+
+.make-listings li a:hover .volvo {
+    background-position: -40px -1280px
+}
+
+.make-listings li a:hover .willys {
+    background-position: -40px -1320px
+}
+
+.make-listings li a:hover .vauxhall {
+    background-position: -40px -1360px
+}
+
+.make-listings li a:hover .triumph {
+    background-position: -40px -1400px
+}
+
+.make-listings li a:hover .ssangyong {
+    background-position: -40px -1440px
+}
+
+.make-listings li a:hover .smart {
+    background-position: -40px -1480px
+}
+
+.make-listings li a:hover .sokon {
+    background-position: -40px -1520px
+}
+
+.make-listings li a:hover .skoda {
+    background-position: -40px -1560px
+}
+
+.make-listings li a:hover .scion {
+    background-position: -40px -1600px
+}
+
+.make-listings li a:hover .saab {
+    background-position: -40px -1640px
+}
+
+.make-listings li a:hover .royal-enfield {
+    background-position: -40px -1680px
+}
+
+.make-listings li a:hover .rover {
+    background-position: -40px -1720px
+}
+
+.make-listings li a:hover .rolls-royce {
+    background-position: -40px -1760px
+}
+
+.make-listings li a:hover .renault {
+    background-position: -40px -1800px
+}
+
+.make-listings li a:hover .proton {
+    background-position: -40px -1840px
+}
+
+.make-listings li a:hover .pontiac {
+    background-position: -40px -1880px
+}
+
+.make-listings li a:hover .plymouth {
+    background-position: -40px -1920px
+}
+
+.make-listings li a:hover .peugeot {
+    background-position: -40px -1960px
+}
+
+.make-listings li a:hover .opel {
+    background-position: -40px -2000px
+}
+
+.make-listings li a:hover .oldsmobile {
+    background-position: -40px -2040px
+}
+
+.make-listings li a:hover .moto-guzzi {
+    background-position: -40px -2080px
+}
+
+.make-listings li a:hover .morris {
+    background-position: -40px -2120px
+}
+
+.make-listings li a:hover .mini {
+    background-position: -40px -2160px
+}
+
+.make-listings li a:hover .mg {
+    background-position: -40px -2200px
+}
+
+.make-listings li a:hover .maserati {
+    background-position: -40px -2240px
+}
+
+.make-listings li a:hover .lincoln {
+    background-position: -40px -2280px
+}
+
+.make-listings li a:hover .lamborghini {
+    background-position: -40px -2320px
+}
+
+.make-listings li a:hover .lada {
+    background-position: -40px -2360px
+}
+
+.make-listings li a:hover .master {
+    background-position: -40px -2400px
+}
+
+.make-listings li a:hover .jac {
+    background-position: -40px -2440px
+}
+
+.make-listings li a:hover .isuzu {
+    background-position: -40px -2480px
+}
+
+.make-listings li a:hover .hummer {
+    background-position: -40px -2520px
+}
+
+.make-listings li a:hover .hino {
+    background-position: -40px -2560px
+}
+
+.make-listings li a:hover .hillman {
+    background-position: -40px -2600px
+}
+
+.make-listings li a:hover .golden-dragon {
+    background-position: -40px -2640px
+}
+
+.make-listings li a:hover .gmc {
+    background-position: -40px -2680px
+}
+
+.make-listings li a:hover .geely {
+    background-position: -40px -2720px
+}
+
+.make-listings li a:hover .dodge {
+    background-position: -40px -2760px
+}
+
+.make-listings li a:hover .daimler {
+    background-position: -40px -2800px
+}
+
+.make-listings li a:hover .classic-cars {
+    background-position: -40px -2840px
+}
+
+.make-listings li a:hover .citroen {
+    background-position: -40px -2880px
+}
+
+.make-listings li a:hover .chrysler {
+    background-position: -40px -2920px
+}
+
+.make-listings li a:hover .chery {
+    background-position: -40px -2960px
+}
+
+.make-listings li a:hover .cadillac {
+    background-position: -40px -3000px
+}
+
+.make-listings li a:hover .buick {
+    background-position: -40px -3040px
+}
+
+.make-listings li a:hover .bentley {
+    background-position: -40px -3080px
+}
+
+.make-listings li a:hover .austin {
+    background-position: -40px -3120px
+}
+
+.make-listings li a:hover .alfa-romeo {
+    background-position: -40px -3160px
+}
+
+.user-profile-img img {
+    border: 7px solid #e5e5e5;
+    border-radius: 1.35rem
+}
+
+.add-times-btn {
+    font-size: 3rem
+}
+
+.timing .add-times-btn {
+    font-size: 3rem
+}
+
+.timing .add-times-minus-btn {
+    font-size: 3rem
+}
+
+.working-hours-fields .form-control {
+    font-size: .82rem;
+    padding-right: 6px
+}
+
+.cprofile-desc h3 {
+    font-size: 1.65rem
+}
+
+.cprofile-desc .member-time {
+    color: #707070
+}
+
+.cprofile-desc ul li:not(:last-child) {
+    border-right: 2px solid #0072c9;
+    line-height: 1;
+    padding-right: .6rem
+}
+
+.profile-nav-tab {
+    border-bottom: none
+}
+
+.profile-nav-tab .nav-link {
+    border: 1px solid #e9e9e9;
+    border-right: none;
+    border-bottom: 2px solid transparent;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: .65rem 1rem;
+    position: relative
+}
+
+.profile-nav-tab .nav-link.active {
+    border-bottom: 2px solid #6d6d6d;
+    background: #f2f3f3
+}
+
+.profile-nav-tab .nav-link.active:after {
+    content: '';
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #6d6d6d;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute
+}
+
+.sidebar-pills .nav-item:not(:last-child) {
+    margin-bottom: .75rem
+}
+
+.sidebar-pills .nav-link.active,
+.sidebar-pills .show>.nav-link {
+    color: #fff;
+    background-color: #0072bb;
+    border-color: #02436d
+}
+
+.sidebar-pills .nav-link {
+    border-color: #e9e9e9;
+    background: #f2f3f3
+}
+
+.active-img,
+.sidebar-pills .nav-link.active .none-active-img {
+    display: none
+}
+
+.sidebar-pills .nav-link.active .active-img {
+    display: block
+}
+
+.sidebar-pills .nav-link figure {
+    width: 2rem
+}
+
+.ads-listing-rows .row:not(:last-child) {
+    border-bottom: 1px solid #dee2e6
+}
+
+.featuredAd {
+    color: #b73439
+}
+
+.ads-listing-text h4 {
+    font-size: 1.3rem
+}
+
+.save-ad-price {
+    font-size: 1.2rem
+}
+
+.actionbtn {
+    font-size: .85rem
+}
+
+.editProfile ul li a {
+    opacity: .7
+}
+
+.editProfile ul li a:hover {
+    opacity: 1;
+    border-color: #005e9b !important
+}
+
+.ad-tab-sidebar {
+    margin-top: 3.5rem
+}
+
+.alerts-tab-sidebar,
+.save-ad-sidebar {
+    margin-top: 2.1rem
+}
+
+.close-alerts {
+    width: 1.5rem;
+    line-height: 1.5rem;
+    background: #e81123;
+    color: #fff;
+    text-align: center
+}
+
+.alerts-tab-desc table tr td {
+    vertical-align: middle
+}
+
+.messages-search {
+    background: #fbfbfb;
+    border-radius: .5rem
+}
+
+.messages-search {
+    max-width: 345px
+}
+
+.messages-search .form-control,
+.messages-search button {
+    background: 0 0;
+    height: 2.8rem
+}
+
+.table-bordered thead td,
+.table-bordered thead th {
+    border-bottom: none !important
+}
+
+.profile-tab-content table tr td,
+.profile-tab-content table tr th {
+    vertical-align: middle
+}
+
+table.message-table tr td,
+table.message-table tr th {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding: 1rem 1.5rem
+}
+
+.messages-content {
+    font-size: .9rem;
+    max-height: 470px;
+    overflow: auto
+}
+
+.reciever-mesg-bg {
+    background: #0072bb;
+    border-radius: .5rem
+}
+
+.sender-mesg-bg {
+    background: #707070;
+    border-radius: .5rem
+}
+
+.reciever-message,
+.sender-message {
+    width: 60%
+}
+
+.messages-content>div:not(:first-child) {
+    margin-top: 1.5rem
+}
+
+.reciever-mesg-bg:not(:last-child) {
+    margin-bottom: 1rem
+}
+
+.msg-characters {
+    font-size: .9rem
+}
+
+.bl-from-to input.form-control {
+    height: 2.1rem
+}
+
+.bl-from-to .gj-datepicker-bootstrap [role=right-icon] button {
+    width: 2.5rem;
+    padding: 0;
+    background: 0 0 !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    border-color: #dbdbdb !important
+}
+
+.bl-from-to .gj-datepicker-bootstrap [role=right-icon] button i {
+    position: static
+}
+
+.filterBtn .btn {
+    font-size: .8rem;
+    padding: .3rem 1rem;
+    border-radius: 2rem
+}
+
+.filterBtn .btn:not(:last-child) {
+    margin-right: 6px
+}
+
+.post-ad-auto-bg {
+    width: 80%
+}
+
+.post-ad-auto-bg .input-group {
+    border: 2px solid #000
+}
+
+.post-ad-auto-bg .form-control {
+    font-size: 1.5rem;
+    font-weight: 700;
+    height: calc(3rem - 4px)
+}
+
+.prefilled-data-note {
+    font-size: .9rem
+}
+
+.cc-page-banner {
+    padding-bottom: 5rem
+}
+
+.cc-page-banner .breadcrumb {
+    color: #fff;
+    margin-bottom: .5rem
+}
+
+.cc-page-banner .breadcrumb-item a:hover,
+.cc-page-banner .breadcrumb-item.active {
+    color: #abd4f0
+}
+
+.cc-page-banner .breadcrumb-item+.breadcrumb-item::before {
+    color: #fff
+}
+
+.comp-about-bg p:last-child {
+    margin-bottom: 0
+}
+
+.post-ad-auto-col:not(:first-child) {
+    border-left: 1px solid #b7b0b0
+}
+
+.without-no .btn {
+    line-height: 3rem
+}
+
+span.pricerange {
+    height: 3rem
+}
+
+.pr-dropdown {
+    border: 1px solid #ccc;
+    background: #fff;
+    z-index: 11;
+    top: calc(100% - -2px)
+}
+
+.pr-dropdown-mileage {
+    border: 1px solid #ccc;
+    background: #fff;
+    z-index: 11;
+    top: calc(100% - -2px)
+}
+
+.btSlider .item .row {
+    margin-left: -7px;
+    margin-right: -7px
+}
+
+.btSlider .item .row .bucSliderCol {
+    padding-left: 7px;
+    padding-right: 7px
+}
+
+@media(min-width:768px) {
+    .header-btn .dropdown:hover .dropdown-menu,
+    li.dropdown:hover .dropdown-menu {
+        display: block
+    }
+    li.lingdropdown:hover .dropdown-menu {
+        display: none
+    }
+    li.lingdropdown.show .dropdown-menu {
+        display: block
+    }
+}
+
+@media(max-width:768px) {
+    .payment-text {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: unset;
+    }
+}
+
+
+@media(max-width:1199px) {
+    html {
+        font-size: 14.5px
+    }
+    .header-btn .btn {
+        padding: .46rem 2rem
+    }
+    .navbar .navbar-nav .nav-link {
+        padding: .5rem 1.5rem
+    }
+    .sell-car-col h4 {
+        font-size: 2.1rem
+    }
+    .sell-car-btn .btn {
+        font-size: 1.5rem
+    }
+    .gridingCol .listingCar-desc ul li.list-inline-item:not(:last-child) {
+        margin-right: .25rem;
+        padding-right: .3rem
+    }
+    .featuredlabel {
+        font-size: .95rem
+    }
+    .tagpagetitle {
+        font-size: 1.75rem
+    }
+    .newtags-form,
+    .tag-page-col .f-size {
+        font-size: 1.15rem
+    }
+    .offered-services-col figure {
+        height: 145px
+    }
+    .postformmodal .modal-dialog {
+        max-width: 940px;
+        font-size: .9rem
+    }
+    .car-info-list-col ul li a {
+        padding: 5px 5px
+    }
+    .post-ad-auto-bg {
+        width: 90%
+    }
+    .sidebar-pills .nav-link figure {
+        width: 1.5rem
+    }
+    .sidebar-pills .nav-item .nav-link {
+        padding: .5rem .65rem .5rem .75rem
+    }
+    .comparison-col {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem
+    }
+    .comparison-col h4 {
+        font-size: 1.6rem
+    }
+    .cr-list-title {
+        font-size: 18px
+    }
+}
+
+@media(max-width:991px) {
+    html {
+        font-size: 14px
+    }
+    .topbar-links {
+        font-size: 1.1rem
+    }
+    .navbar .navbar-nav .nav-link {
+        padding: .5rem 1.1rem
+    }
+    .navbar .nav-item .dropdown-menu {
+        width: 250px;
+        padding: .75rem 0
+    }
+    .navbar .navbar-nav .dropdown-item {
+        padding: .5rem 1.15rem;
+        white-space: normal
+    }
+    .header-btn .btn {
+        padding: .4rem 1.2rem
+    }
+    .banner {
+        padding-top: 13rem;
+        padding-bottom: 6rem
+    }
+    .sell-car-col h4 {
+        font-size: 1.8rem
+    }
+    .sell-car-btn .btn {
+        font-size: 1.35rem
+    }
+    .arrowImg img {
+        width: 150px
+    }
+    .popular-uc-slider .item figure {
+        min-height: 130px
+    }
+    .comparison-col {
+        padding-top: 1.35rem
+    }
+    .carComp {
+        margin-left: -1.5rem;
+        max-width: 3rem
+    }
+    .comp-col figure {
+        min-height: 85px
+    }
+    .comp-col h6 {
+        font-size: 1.1rem
+    }
+    .comparison2 h6 {
+        font-size: 1.1rem
+    }
+    .comparison2 img {
+        max-width: 45px
+    }
+    #searchResultFilter {
+        display: none
+    }
+    .filterDown em {
+        font-size: 1.5rem
+    }
+    .sidebar-title {
+        font-size: 1.2rem
+    }
+    .gridingCol .listingCol {
+        margin-left: 6px;
+        margin-right: 6px;
+        padding: .5rem !important;
+        max-width: calc(33.333% - 12px)
+    }
+    .gridingCol {
+        margin-right: -6px;
+        margin-left: -6px
+    }
+    .adActive {
+        margin-right: 0
+    }
+    .selectfieldcol {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+        height: 0;
+        margin-bottom: 0 !important;
+        overflow: hidden;
+        position: relative
+    }
+    .breadcrumb {
+        font-size: .95rem
+    }
+    .cc-page-banner .breadcrumb {
+        font-size: 1rem
+    }
+    .internal-banner h1 {
+        font-size: 2.2rem
+    }
+    .detail-page-title {
+        font-size: 1.05rem
+    }
+    .sellerContact-left,
+    .sellerContact-right {
+        width: 100%
+    }
+    .sellerContact-right .btn {
+        font-size: 1rem;
+        width: auto;
+        padding: .5rem .7rem
+    }
+    .sellerinfo-right .carPrice {
+        font-size: 1.75rem
+    }
+    .sellerContact-right .btn em {
+        font-size: 1.3rem;
+        margin-top: -2px;
+        margin-right: 3px
+    }
+    .taxi-comp-col table tr td {
+        font-size: 1.175rem;
+        padding-right: 2rem
+    }
+    .carinfoTabs-col ul li a {
+        padding: 1rem 1.2rem 1.1rem 1rem;
+        font-size: 1.1rem
+    }
+    .car-comparison-from .form-group label {
+        font-size: 1.1rem
+    }
+    .comp-about-bg h1 {
+        font-size: 2.2em;
+        margin-bottom: .7rem !important
+    }
+    .comp-about-bg {
+        font-size: 1.05em
+    }
+    .search-form-col form .form-search-row {
+        margin-right: 0;
+        margin-left: 0
+    }
+    .search-form-col form .searchsubmit {
+        margin-left: 0
+    }
+    .form-search-row .form-group {
+        padding-right: 0;
+        padding-left: 0
+    }
+    .advSearchCol {
+        padding-left: 5px !important
+    }
+    .tagpagetitle {
+        font-size: 1.45rem
+    }
+    .newtags-form,
+    .tag-page-col .f-size {
+        font-size: 1.15rem
+    }
+    .user-profile h4 {
+        font-size: 1.25rem
+    }
+    .browse-car-tabs .nav-link {
+        font-size: 1.1rem;
+        padding: .5rem .85rem
+    }
+    .bcbImg {
+        min-height: 41px
+    }
+    .bcbImg img {
+        max-height: 40px
+    }
+    .browse-car-by-sect .owl-carousel .owl-nav button.owl-next {
+        right: -50px
+    }
+    .browse-car-by-sect .owl-carousel .owl-nav button.owl-prev {
+        left: -50px
+    }
+    .sidebar-sect-title {
+        border-bottom: 1px solid #c5c5c5
+    }
+    .offered-services-col figure {
+        height: 160px
+    }
+    .services-slider .item>.row {
+        margin-right: -7px;
+        margin-left: -7px
+    }
+    .offered-services-col {
+        padding-left: 7px;
+        padding-right: 7px
+    }
+    .offered-services-sidebar {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+    .offered-services-product {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        border-left: 1px solid #dee2e6 !important;
+        border-top: none !important
+    }
+    .offered-services-col:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+        margin-top: 2.5rem
+    }
+    .view-all-offers-link {
+        font-size: 1.05rem
+    }
+    .detail-table-categ tr td:first-child {
+        padding-left: 1rem
+    }
+    .detail-table-categ tr td:last-child {
+        padding-right: 1rem
+    }
+    .postformmodal .modal-dialog {
+        max-width: 95%;
+        width: 100%
+    }
+    .car-make-logo {
+        height: 37px;
+        margin: -6px 0 -6px -9px
+    }
+    .ads-listing-text h4 {
+        font-size: 1.15rem
+    }
+    .profile-nav-tab .nav-link {
+        padding: .65rem .65rem
+    }
+    .profile-tab-content table tr td,
+    .profile-tab-content table tr th {
+        white-space: nowrap;
+        padding: .65rem .5rem
+    }
+    .save-ad-price {
+        font-size: 1.05rem
+    }
+    .btn {
+        padding: .6rem 1.5rem;
+        font-size: 1.1rem
+    }
+    input[type=submit] {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem
+    }
+    .messages-search .form-control,
+    .messages-search button {
+        height: 2.5rem
+    }
+    .comparison-col h4 {
+        font-size: 1.35rem
+    }
+    .searchsubmit {
+        width: 100%
+    }
+    .searchsubmit .searchBtn {
+        width: 100%
+    }
+    .cr-list-title {
+        font-size: 18px
+    }
+}
+
+@media(max-width:767px) {
+    html {
+        font-size: 14px
+    }
+    .h5,
+    h5 {
+        font-size: 1.2rem
+    }
+    .cr-list-title {
+        font-size: 14px;
+        margin-bottom: 3px
+    }
+    .car-dealer-list-desc ul li {
+        line-height: 3px;
+        font-size: 11px
+    }
+    .dealer-place-cont span {
+        font-size: 11px;
+        line-height: 8px
+    }
+    .car-dealer-list-desc li em {
+        font-size: 11px
+    }
+    .cstm-dropdown-menu {
+        width: 45px
+    }
+    .cstm-dropdown-menu .dropdown-item {
+        padding-left: 9px
+    }
+    .home-header .topbar-links {
+        color: #fff
+    }
+    .flag-icon {
+        max-width: 30px;
+        line-height: inherit;
+        border: 1px solid #d2cece
+    }
+    .topbar-links .list-inline-item:not(:last-child) {
+        margin-right: 20px
+    }
+    .navbar-brand {
+        max-width: 120px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-right: 38px
+    }
+    .navbar .nav-item .dropdown-menu {
+        width: 100%;
+        padding: .75rem 0
+    }
+    .home-header .navbar .navbar-toggler {
+        color: #0072bb;
+        background: #fff
+    }
+    .home-header .navbar .navbar-toggler[aria-expanded=true],
+    .navbar-toggler[aria-expanded=true] {
+        color: #efefef;
+        background: #e81123
+    }
+    .navbar-toggler {
+        outline: 0;
+        padding: .25rem .75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        font-size: 1.75rem;
+        background: #0072bb;
+        width: 38px;
+        padding: 2px !important;
+        height: 37px;
+        color: #fff
+    }
+    .navbar-toggler[aria-expanded=true] span:before {
+        font-family: fontAwesome
+    }
+    .navbar .navbar-nav .nav-item {
+        border-bottom: 1px solid #eaeaea
+    }
+    .navbar .navbar-nav .nav-link {
+        font-size: 1.15rem;
+        padding: .8rem 1rem
+    }
+    body .navbar .navbar-nav .nav-link[aria-expanded=true] {
+        color: #fff;
+        background: #0072bb
+    }
+    .navbar .navbar-nav .dropdown-item {
+        font-size: 1rem;
+        padding: .5rem 1rem;
+        font-weight: 600
+    }
+    .home-header .navbar .navbar-nav .nav-link {
+        color: rgba(0, 0, 0, .8)
+    }
+    .navbar .navbar-nav .dropdown-toggle::after {
+        right: 1rem;
+        position: absolute
+    }
+    .navbar .navbar-nav .dropdown-toggle[aria-expanded=true]::after {
+        content: "\f106"
+    }
+    .mobile-collape-bg {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .5);
+        z-index: 1000
+    }
+    .navbar-collapse {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        height: 100% !important;
+        z-index: 1200;
+        outline: 0;
+        position: fixed;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        background: #fff;
+        color: #000;
+        width: 280px;
+        box-shadow: 1px 1px 20px 0 #979797
+    }
+    .navbar .navbar-collapse .dropdown-menu {
+        font-size: 1rem;
+        border-radius: 0;
+        border: none;
+        padding-top: 0
+    }
+    .banner {
+        padding-top: 7rem;
+        padding-bottom: 3rem
+    }
+    .servicesCol img {
+        max-height: 50px
+    }
+    .search-form-col h1 {
+        font-size: 2rem;
+        margin-bottom: 1.8rem
+    }
+    .searchBtn {
+        font-size: 1.4rem;
+        padding: .5rem 1rem;
+        height: 48px
+    }
+    .bucSliderCol figure {
+        margin-bottom: .75rem;
+        min-height: 38px
+    }
+    .bucSliderCol figure img {
+        max-height: 38px
+    }
+    .section-title {
+        margin-bottom: 1rem
+    }
+    .sectTitle {
+        font-size: 1.85rem
+    }
+    .buCarTabs .nav-item {
+        margin-right: 3.5rem
+    }
+    .buCarTabs {
+        margin-bottom: 1.5rem
+    }
+    .comp-col figure {
+        min-height: 115px
+    }
+    .cars-parts .item figure,
+    .offered-service .item figure,
+    .popular-uc-slider .item figure {
+        min-height: auto
+    }
+    .pageTitle h2 {
+        font-size: 1.75rem
+    }
+    .pageTitle .breadcrumb {
+        font-size: 1.15rem
+    }
+    .form-control {
+        padding: .375rem .7rem
+    }
+    .sidebar-title {
+        font-size: 1.2rem
+    }
+    .notifyForm form .row {
+        margin-left: -5px;
+        margin-right: -5px
+    }
+    .notifyForm form .form-group {
+        padding-right: 5px;
+        padding-left: 5px
+    }
+    .gridingCol .listingCol {
+        max-width: calc(50% - 12px);
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%
+    }
+    .gridingCol .listingCar {
+        padding-right: 1rem !important
+    }
+    .aboutcarlist,
+    .listingCar-place {
+        margin-bottom: .25rem !important
+    }
+    .advSearch .form-group {
+        margin-bottom: 1rem
+    }
+    .gridingCol .lc-contact {
+        padding-left: 1rem !important
+    }
+    .listingCar-title h5 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis
+    }
+    .sell-arrow-right {
+        position: absolute;
+        margin-right: 0;
+        max-width: 100px;
+        left: 50%;
+        margin-left: 1px !important
+    }
+    .postAdRow {
+        padding-bottom: 40px
+    }
+    .carinfodetail-row .card {
+        padding: 1.2rem;
+        margin-bottom: 1.25rem
+    }
+    .featureslistitem {
+        margin-bottom: 1rem
+    }
+    .carInfotitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.35rem
+    }
+    .cartagsinfo ul li span {
+        font-size: .75rem
+    }
+    .carInfotitle img {
+        margin-right: .5rem;
+        max-width: 16px
+    }
+    .taxi-comp-col table tr td {
+        font-size: 1.1rem;
+        padding-right: 1rem;
+        padding-bottom: .8rem
+    }
+    .taxi-comp-col table tr td img {
+        max-width: 70px
+    }
+    .seller-comments-col {
+        font-size: 1rem
+    }
+    .breadcrumb {
+        font-size: .9rem
+    }
+    .carinfodetail-row .card table tr td {
+        padding: .5rem .5rem
+    }
+    .carinfoTabs-col ul li a {
+        padding: .75rem .5rem .75rem .5rem;
+        font-size: 1rem
+    }
+    .sellerContact-right .btn {
+        width: 75%
+    }
+    .internal-banner {
+        padding: 2rem 0;
+        font-size: 1.15rem
+    }
+    .internal-banner h1,
+    .internal-banner h2 {
+        font-size: 2rem
+    }
+    .comp-about-bg {
+        font-size: 1em
+    }
+    .comp-about-bg h1 {
+        font-size: 2em
+    }
+    .compare-features h2,
+    .compare-specifications h2 {
+        font-size: 1.75rem
+    }
+    .newtags-form,
+    .tag-page-col .f-size {
+        font-size: 1rem
+    }
+    .tag-page-col h6.f-size {
+        font-size: 1.15rem
+    }
+    .list-comp-logo {
+        max-width: 30px
+    }
+    .user-profile h4 {
+        font-size: 1.1rem
+    }
+    .review-title h5 {
+        font-size: 1.25rem
+    }
+    .posted-review:not(:first-child) {
+        margin-top: 2.2rem;
+        padding-top: 2.2rem;
+        border-top: 1px solid #ccc
+    }
+    .browse-car-by-sect .owl-carousel .owl-nav button.owl-next {
+        right: -40px
+    }
+    .browse-car-by-sect .owl-carousel .owl-nav button.owl-prev {
+        left: -40px
+    }
+    .offered-services-col figure {
+        height: 170px
+    }
+    .signInbg h1 {
+        font-size: 2rem
+    }
+    .signIn-form {
+        font-size: 1.15rem
+    }
+    .signIn-note {
+        font-size: 1.25rem
+    }
+    .signIn-form .input-group em {
+        width: 3rem;
+        font-size: 1.4rem
+    }
+    .signIn-btn[type=submit] {
+        height: 3.75rem;
+        font-size: 1.6rem
+    }
+    .connect-with-social em {
+        font-size: 1.5rem
+    }
+    .connect-with-social .btn {
+        font-size: 1.1rem;
+        padding-top: .8rem;
+        padding-bottom: .8rem
+    }
+    .sign-up-tabs .nav-item .nav-link {
+        font-size: 1.15rem
+    }
+    .signuo-field-icon {
+        width: 100%;
+        text-align: right !important
+    }
+    .timing .add-times-btn {
+        font-size: 2.2rem
+    }
+    .timing .add-times-minus-btn {
+        font-size: 2.2rem
+    }
+    .connect-with-other,
+    .signup-form .signIn-group {
+        padding-left: 3rem
+    }
+    .car-info-list-col {
+        display: none;
+        background: #fff
+    }
+    .prev-list-active {
+        display: none !important
+    }
+    .car-list-active.car-info-list-col {
+        display: block
+    }
+    .post-ad-modal-title {
+        font-size: 1.3rem;
+        padding: 15px 15px !important;
+        height: auto
+    }
+    .post-modal-list {
+        max-height: 350px
+    }
+    .cprofile-desc h3 {
+        font-size: 1.35rem
+    }
+    .cprofile-desc ul {
+        font-size: .95rem
+    }
+    .profile-nav-tab .nav-item {
+        width: 33%
+    }
+    .profile-nav-tab .nav-item .nav-link.active:after {
+        display: none
+    }
+    .user-profile-img img {
+        border: 5px solid #e5e5e5;
+        border-radius: 1rem
+    }
+    .ad-tab-sidebar {
+        margin-top: 0
+    }
+    .change-password-sect h2 {
+        font-size: 1.7rem
+    }
+    .change-password-sect .f-size1 {
+        font-size: 1rem
+    }
+    .message-table tr td {
+        width: 100%
+    }
+    .reciever-message,
+    .sender-message {
+        width: 90%
+    }
+    .messages-content>div:not(:first-child) {
+        margin-top: 1.5rem
+    }
+    .messages-search {
+        max-width: 250px;
+        border-radius: .25rem
+    }
+    .post-ad-auto-col:not(:first-child) {
+        border-top: 1px solid #b7b0b0;
+        border-left: none
+    }
+    .bucSliderCol h5 {
+        font-size: 1rem
+    }
+    .working-hours-fields .form-control {
+        font-size: .82rem;
+        padding-right: 6px;
+        margin-bottom: 5px
+    }
+}
+
+@media(max-width:600px) {
+    .carinfodetail-row {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1
+    }
+    .postAdRow {
+        padding-bottom: 0
+    }
+    .sellCartext {
+        margin-bottom: 1.5rem
+    }
+    .postAdRow {
+        text-align: center
+    }
+    .bl-from-to label {
+        width: 40px
+    }
+    .sellercarInfo:nth-child(3n) {
+        border-right: none
+    }
+    .sellercarInfo:nth-child(even) {
+        border-right: 1px solid #6d6d6d
+    }
+}
+
+@media(max-width:575px) {
+    .signuo-field-icon {
+        display: none
+    }
+    .cr-list-title {
+        font-size: 12px;
+        margin-bottom: 3px
+    }
+    .car-dealer-img {
+        min-height: 95px
+    }
+}
+
+@media(max-width:500px) {
+    .sectTitle {
+        font-size: 1.5rem
+    }
+    .viewall-post {
+        font-size: 1rem
+    }
+    .buCarTabs .nav-item {
+        margin-right: 3rem
+    }
+    .bucSliderCol figure {
+        margin-bottom: .75rem;
+        min-height: 40px
+    }
+    .bucSliderCol figure img {
+        max-height: 40px
+    }
+    .featured-uc-slider .item figure>div {
+        padding-top: 75%
+    }
+    .carComp {
+        display: none
+    }
+    .comp-col figure {
+        min-height: auto
+    }
+    .comp-col:not(:nth-child(2)) {
+        position: relative;
+        padding-bottom: 55px;
+        margin-bottom: 20px
+    }
+    .comp-col:not(:nth-child(2)):after {
+        content: 'vs';
+        position: absolute;
+        background: #0072c0;
+        color: #fff;
+        width: 45px;
+        line-height: 45px;
+        z-index: 7;
+        font-weight: 700;
+        font-size: 1.25rem;
+        border-radius: 100%;
+        left: 50%;
+        bottom: 0;
+        margin-left: -17.5px
+    }
+    .listingCar {
+        margin-bottom: .75rem
+    }
+    .listingCar img {
+        width: 100%
+    }
+    .pageTitle h2 {
+        font-size: 1.4rem
+    }
+    .pageTitle .breadcrumb {
+        font-size: 1rem
+    }
+    .carCompTitle h2 {
+        font-size: 1.6rem
+    }
+    .sidebar-title {
+        font-size: 1.1rem
+    }
+    .listingCar-title .lcPrice {
+        display: none !important
+    }
+    .gridingCol .listingCol {
+        max-width: calc(100% - 12px);
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        padding: 1rem !important
+    }
+    .gridListprice {
+        display: -ms-flexbox !important;
+        display: flex !important;
+        margin-bottom: 0 !important
+    }
+    .listingCar-descCar {
+        font-size: .9rem
+    }
+    .lcPrice {
+        font-size: 1.2rem
+    }
+    .lc-contact .contactbtn,
+    .lc-published {
+        display: none !important
+    }
+    .listingCar-place .negotiable {
+        display: none !important
+    }
+    .lc-contact {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+        margin-right: 20px
+    }
+    .listingCar-title h5 {
+        white-space: normal;
+        margin-right: 20px
+    }
+    .lc-contact .lc-favorite {
+        margin-top: 4px;
+        padding: 0 !important;
+        background: 0 0;
+        font-size: 1.25rem;
+        margin-right: 0 !important
+    }
+    .gridingCol .lc-favorite {
+        margin-top: 1rem
+    }
+    .contactbtn {
+        padding: .45rem 1rem;
+        font-size: .85rem;
+        width: 100%
+    }
+    .listingCar-title {
+        padding-right: 1.75rem
+    }
+    .car-listing {
+        padding: .6rem !important
+    }
+    .featuredlabel {
+        font-size: .75rem
+    }
+    .sellCartext {
+        margin-bottom: 1.5rem
+    }
+    .postAdRow {
+        padding-bottom: 0;
+        text-align: center
+    }
+    .carinfoTabs-col ul {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+    .carinfoTabs-col ul li {
+        width: calc(50%);
+        border-bottom: 1px solid #fff;
+        -ms-flex-preferred-size: inherit;
+        flex-basis: initial !important;
+        -ms-flex-positive: initial;
+        flex-grow: initial
+    }
+    .carinfoTabs-col ul li:nth-child(odd) {
+        border-right-color: #fff
+    }
+    .carinfoTabs-col .list-inline-item:nth-child(even) {
+        border-right: none
+    }
+    .carinfoTabs-col ul li a {
+        padding: 1rem .5rem 1rem .4rem;
+        font-size: 1rem
+    }
+    .carinfoTabs-col ul li a:after {
+        display: none
+    }
+    .carinfoTabs-col ul li a.active {
+        background: #005489;
+        color: #fff
+    }
+    .taxi-comp-col table tr td {
+        font-size: 1rem;
+        padding-right: .75rem
+    }
+    .cartagsinfo ul li span {
+        font-size: .95rem
+    }
+    .internal-banner {
+        padding: 2rem 0;
+        font-size: 1.05rem
+    }
+    .internal-banner h1,
+    .internal-banner h2 {
+        font-size: 1.75rem
+    }
+    .compare-features h2,
+    .compare-specifications h2 {
+        font-size: 1.5rem
+    }
+    .comp-table tbody tr td {
+        width: auto
+    }
+    .browse-car-by-sect .owl-carousel .owl-nav button.owl-next {
+        right: -35px
+    }
+    .browse-car-by-sect .owl-carousel .owl-nav button.owl-prev {
+        left: -35px
+    }
+    .bcbImg {
+        min-height: 30px
+    }
+    .bcbImg img {
+        max-height: 30px
+    }
+    .browse-car-tabs {
+        display: block
+    }
+    .browse-car-tabs {
+        display: block
+    }
+    .browse-car-tabs .nav-item {
+        text-align: left
+    }
+    .browse-car-tabs .nav-item .nav-link.active:after,
+    .browse-car-tabs .nav-item .nav-link:hover:after,
+    .browse-car-tabs .nav-item.show .nav-link:after {
+        border-top: 10px solid #0072bb;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: auto;
+        top: 50%;
+        left: auto;
+        right: 16px;
+        margin-left: -10px;
+        margin-top: -2px
+    }
+    .car-dealer-list-desc span.badge {
+        font-size: .85rem;
+        margin-top: .2rem
+    }
+    .car-dealer-list-desc {
+        font-size: .95rem
+    }
+    .offered-services-sidebar {
+        font-size: 1rem
+    }
+    .offered-services-sidebar ul li:not(:last-child) {
+        margin-bottom: .65rem
+    }
+    footer.footer {
+        font-size: 1.1rem
+    }
+    .subscribeForm .btn {
+        font-size: 1.1rem
+    }
+    .profile-nav-tab .nav-link {
+        padding: .55rem .55rem;
+        text-align: left
+    }
+}
+
+@media(max-width:420px) {
+    .viewall-post {
+        font-size: 1.1rem;
+        float: right;
+        margin-top: 10px
+    }
+    .section-title {
+        display: block !important;
+        margin-bottom: 1.2rem
+    }
+    .section-title:after {
+        clear: both;
+        content: '';
+        display: table
+    }
+    .sell-car-col h4 {
+        font-size: 1.6rem
+    }
+    .navbar-brand {
+        max-width: 110px;
+        padding-top: 0;
+        padding-bottom: 0
+    }
+    .pageTitle h2 {
+        font-size: 1.3rem
+    }
+    .carCompTitle h2 {
+        font-size: 1.5rem
+    }
+    .similar-post-col {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%
+    }
+    .similar-post-col h5 {
+        font-size: 1.25rem
+    }
+    .carinfodetail-row .card table tr td {
+        padding: .5rem .5rem
+    }
+    .sellerContact-right .btn {
+        min-width: 160px
+    }
+    .comp-about-bg h1 {
+        font-size: 1.5em;
+        margin-bottom: .7rem !important
+    }
+    .comp-table tbody tr td {
+        padding: .5rem
+    }
+    .list-comp-logo {
+        max-width: 25px
+    }
+    .review-title .btn {
+        padding-right: 1rem;
+        padding-left: 1rem;
+        font-size: 1rem
+    }
+    .internal-sect-title {
+        font-size: 1.5rem
+    }
+    .internal-banner h1,
+    .internal-banner h2 {
+        font-size: 1.5rem
+    }
+    .car-dealer-list-desc span.badge {
+        font-size: .8rem;
+        margin-top: .1rem
+    }
+    .offered-services-col figure {
+        height: auto;
+        min-height: 170px
+    }
+    .signInbg h1 {
+        font-size: 1.75rem
+    }
+    .signIn-form .input-group .form-control {
+        font-size: 1.1rem;
+        height: 3.5rem
+    }
+    .signIn-btn[type=submit] {
+        height: 3.5rem;
+        font-size: 1.5rem
+    }
+    .signIn-form {
+        font-size: 1rem
+    }
+    .sign-up-tabs .nav-item .nav-link {
+        font-size: 1.1rem
+    }
+    .user-profile-img img {
+        border-width: 3px;
+        border-radius: .5rem
+    }
+    .post-ad-auto-bg {
+        width: 100%
+    }
+    .cprofile-desc h3 {
+        font-size: 1.25rem
+    }
+    .cprofile-desc .member-time,
+    .cprofile-desc ul {
+        font-size: .9rem
+    }
+    .cprofile-desc ul li:not(:last-child) {
+        border-right: 1px solid #0072c9;
+        padding-right: .4rem;
+        margin-right: .2rem
+    }
+    .profile-nav-tab .nav-item {
+        width: 50%
+    }
+    .profile-nav-tab .nav-link {
+        padding: .55rem .75rem
+    }
+    .payment-tab-desc h4 {
+        font-size: 1.3rem
+    }
+    .phone-verify-btn {
+        margin-top: 4px;
+    }
+}
+
+@media(max-width:390px) {
+    html {
+        font-size: 13.5px
+    }
+    .cprofile-desc h3 {
+        font-size: 1.2rem
+    }
+    .ads-listing-text h4 {
+        font-size: 1.1rem
+    }
+    .ads-views {
+        font-size: .9rem
+    }
+    .messages-search {
+        width: 100%
+    }
+    .post-ad-auto-col h3 {
+        font-size: 1.5rem
+    }
+    .navbar-collapse {
+        width: 250px
+    }
+}
+
+@media(max-width:360px) {
+    .cprofile-desc h3 {
+        font-size: 1.1rem
+    }
+    .profile-nav-tab .nav-link {
+        padding: .55rem .65rem
+    }
+}
+
+@media(max-width:330px) {
+    html {
+        font-size: 13px
+    }
+    .navbar .navbar-toggler {
+        font-size: 1.75rem;
+        width: 38px;
+        height: 34.6px
+    }
+    .search-form-col h1 {
+        font-size: 2rem;
+        margin-bottom: 1.75rem
+    }
+    .pageTitle h2 {
+        font-size: 1.2rem
+    }
+    .carCompTitle h2 {
+        font-size: 1.5rem
+    }
+    .sellerContact-right .btn {
+        min-width: 133px;
+        font-size: .95rem;
+        padding: .5rem .5rem
+    }
+    .internal-banner {
+        font-size: 1rem
+    }
+    .car-dealer-list-desc {
+        padding-left: 5px;
+        padding-right: 6px;
+        font-size: .9rem
+    }
+    .signInbg h1 {
+        font-size: 1.6rem
+    }
+    .signIn-note {
+        font-size: 1.15rem
+    }
+    .cprofile-desc h3 {
+        font-size: 1.05rem
+    }
+    .cprofile-desc .member-time,
+    .cprofile-desc ul {
+        font-size: .85rem
+    }
+    .profile-nav-tab .nav-link {
+        font-size: .95rem
+    }
+}
+
+.logo-container {
+    position: relative
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 12px;
+    right: 0;
+    height: 100%;
+    width: 70%;
+    opacity: 0;
+    transition: .3s ease;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 50%
+}
+
+.logo-container:hover .overlay {
+    opacity: 1
+}
+
+.icon {
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center
+}
+
+.fa-camera:hover {
+    color: #eee
+}
+
+.sweet-alert .sa-error-container .icon {
+    display: none !important
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%
+}
+
+.ui-autocomplete-loading {
+    background: url(../assets/img/loading2.gif) no-repeat right center
+}
+
+.ads_image {
+    max-height: 150px !important
+}
+
+.alertt {
+    padding: 0 20px;
+    border: 2px solid #f44336;
+    color: #f44336;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #fff
+}
+
+.closebtn:hover {
+    color: #000
+}
+
+.cross {
+    font-size: 24px;
+    margin-right: 30px;
+    margin-top: 0;
+    position: relative
+}
+
+.cross:hover {
+    cursor: pointer
+}
+
+.cover_image {
+    width: 100%;
+    height: auto
+}
+
+@media (max-width:767px) {
+    .cover_image {
+        width: 100%;
+        height: auto
+    }
+}
+
+@media (max-width:767px) {
+    .comp-form-bg {
+        margin-top: 1.5rem !important
+    }
+}
+
+#overlay-loader {
+    position: fixed;
+    top: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.cv-spinner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.spinner {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(https://carish.ee/public/assets/img/loader.gif) 50% 50% no-repeat rgba(249, 249, 249, .1)
+}
+
+@keyframes sp-anime {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.is-hide {
+    display: none
+}
+
+.dataTables_scrollHeadInner {
+    width: 100% !important
+}
+
+.dataTable {
+    width: 100% !important
+}
+
+table.dataTable,
+table.dataTable td,
+table.dataTable th {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important
+}
+
+.messages-image {
+    width: 60px;
+    border-radius: 50%
+}
+
+.messages-star {
+    color: #00f
+}
+
+.makes-logos{
+    padding:7px;
+    background-color: #ebebfb;
+      /* Safari 3-4, iOS 1-3.2, Android 1.6- */
+  -webkit-border-radius: 10px; 
+
+  /* Firefox 1-3.6 */
+  -moz-border-radius: 10px; 
+  
+  /* Opera 10.5, IE 9, Safari 5, Chrome, Firefox 4, iOS 4, Android 2.1+ */
+  border-radius: 10px; 
+}

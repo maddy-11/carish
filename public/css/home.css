@@ -1,0 +1,45 @@
+ul.ui-autocomplete {
+    z-index: 1100;
+}   
+    .box-shadow{
+        height: 260px !important;
+    }
+
+    .bootstrap-select > .dropdown-menu{
+      /*height: 250px;*/
+      max-height: 250px !important;
+    }
+    ul.ui-menu{
+      height: 250px;
+      max-height: 250px !important;
+      /*overflow: scroll;*/
+      overflow-y: scroll;
+    }
+
+    @media (max-width: 767px)
+    {
+      .box-shadow
+      {
+        /*height: auto !important;*/
+      }
+    }
+
+    .featured-uc-slider .item figure>div {
+    padding-top: 0 !important;
+}
+
+@media (max-width: 768px)
+{
+  .feature_ads
+  {
+    min-height: 375px !important;
+  }
+  .main_page_images
+  {
+    height: 280px !important;
+  }
+}
+.feature_ads
+{
+  min-height: 275px;
+}

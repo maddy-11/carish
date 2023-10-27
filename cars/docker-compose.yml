@@ -1,0 +1,10 @@
+version: "3.1"
+services:
+  web:
+    build: .
+    image:Mutahir-PHP
+    ports:
+      - "8084:80"
+    volumes:
+      - /var/www/html:var/www/html/
+    container_name: Carish-Services

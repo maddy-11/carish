@@ -1,0 +1,531 @@
+SET NAMES utf8;
+SET foreign_key_checks = 0;
+SET time_zone = 'SYSTEM';
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+--DROP TABLE IF EXISTS `customers`;
+CREATE TABLE `customers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_firstname` varchar(200) DEFAULT NULL,
+  `customer_lastname` varchar(200) DEFAULT NULL,
+  `customer_gender` char(5) NOT NULL DEFAULT 'Male',
+  `customers_dob` datetime NOT NULL,
+  `customer_email_address` varchar(200) NOT NULL,
+  `customer_default_address_id` varchar(200) NOT NULL,
+  `customers_telephone` varchar(45) DEFAULT NULL,
+  `customer_fax` varchar(45) DEFAULT NULL,
+  `customer_password` varchar(200) NOT NULL,
+  `customer_newsletter` char(3) NOT NULL DEFAULT 'No',
+  `remember_token` varchar(45) DEFAULT NULL,
+  `password_reset_date` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `customer_status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
+  `customer_avatar` varchar(255) DEFAULT NULL,
+  `customers_locale` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ==========================================================================================
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fromt_id` int(11) NOT NULL,
+  `to_id` int(11) NOT NULL,
+  `review_rating` int(2) NOT NULL,
+  `review_title` varchar(255) DEFAULT NULL,
+  `review_description` text,
+  `status` enum('Active','Inactive') NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- ===================================================================================================
+
+CREATE TABLE `coupons` (
+  `id` int(11) NOT NULL,
+  `code` varchar(45) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `date_expired` datetime NOT NULL,
+  `usage_limit` int(11) NOT NULL DEFAULT '0',
+  `usage_count` int(11) NOT NULL DEFAULT '0',
+  `email_restrictions` varchar(45) DEFAULT NULL,
+  `individual_use` varchar(45) NOT NULL,
+  `discount_type` varchar(45) DEFAULT 'Fixed Price',
+  `created_at` varchar(45) DEFAULT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`,`product_id`),
+  KEY `product_id_FK_idx` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ===========================================================================
+CREATE TABLE `coupon_lines` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `coupon_id` int(11) NOT NULL,
+  `code` varchar(100) NOT NULL,
+  `discount` decimal(10,2) NOT NULL,
+  `discount_tax` varchar(45) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`,`order_id`,`coupon_id`),
+  KEY `coupon_id_FK_idx` (`coupon_id`),
+  KEY `order_idd_FK_idx` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- ===========================================================================================
+CREATE TABLE `customers_basket_attributes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `products_option_id` int(11) NOT NULL,
+  `products_options_value_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- ==========================================================================================
+CREATE TABLE `customer_basket` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `basket_quantity` int(11) NOT NULL,
+  `final_price` decimal(10,2) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `customer_id_FK_idx` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ -- ===========================================================================================
+CREATE TABLE `customer_billing_address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `country_id` int(11) DEFAULT NULL,
+  `billing_first_name` varchar(200) NOT NULL,
+  `billing_last_name` varchar(200) NOT NULL,
+  `billing_email` varchar(200) NOT NULL,
+  `billing_address` varchar(255) DEFAULT NULL,
+  `billng_city` varchar(200) DEFAULT NULL,
+  `billing_company` varchar(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `customer_id_FK_idx` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ -- ======================================================================================
+CREATE TABLE `customer_shippings` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `state_id` int(11) DEFAULT NULL,
+  `shipping_first_name` varchar(200) NOT NULL,
+  `shipping_last_name` varchar(200) NOT NULL,
+  `shipping_city` varchar(200) NOT NULL,
+  `shipping_postcode` varchar(200) DEFAULT NULL,
+  `shipping_address_1` varchar(200) DEFAULT NULL,
+  `shipping_address_2` varchar(200) DEFAULT NULL,
+  `shipping_company` varchar(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cusomer_id_FK_idx` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ -- ================================================================================================================
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
+  `order_status` varchar(100) NOT NULL,
+  `currency` char(3) NOT NULL,
+  `currency_value` decimal(10,2) DEFAULT NULL,
+  `transaction_id` varchar(100) DEFAULT NULL,
+  `total_price` decimal(10,2) NOT NULL,
+  `subtotal_price` decimal(10,2) NOT NULL,
+  `total_tax` decimal(10,2) DEFAULT NULL,
+  `total_line_items_price` decimal(10,2) DEFAULT NULL,
+  `tax_lines` text,
+  `total_weight` decimal(10,2) NOT NULL,
+  `cancel_reason` text,
+  `refunds` varchar(45) DEFAULT NULL,
+  `payment_method_title` varchar(100) DEFAULT NULL,
+  `payment_method` varchar(100) DEFAULT NULL,
+  `billing_address` text NOT NULL,
+  `shipping_title` varchar(100) DEFAULT NULL,
+  `shipping_method` varchar(100) DEFAULT NULL,
+  `shipping_address` text NOT NULL,
+  `source_name` varchar(100) DEFAULT NULL,
+  `customer_ip_address` varchar(45) DEFAULT NULL,
+  `customer_note` text,
+  `cart_hash` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`,`customer_id`),
+  KEY `customer_id_FK_idx` (`customer_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ -- ============================================================================================================================
+CREATE TABLE `order_products` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_price` decimal(10,2) NOT NULL,
+  `product_name` varchar(45) NOT NULL,
+  `product_description` text NOT NULL,
+  `product_model` varchar(45) DEFAULT NULL,
+  `product_quantity` varchar(45) DEFAULT NULL,
+  `product_status` enum('Pending','Shipped','Cancelled','Refunded') NOT NULL DEFAULT 'Pending',
+  `products_tax` varchar(45) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`,`product_id`,`order_id`),
+  KEY `order_id_FK_idx` (`order_id`),
+  KEY `product_id_FK_idx` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ -- =====================================================================================================
+CREATE TABLE `product_questions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` varchar(45) NOT NULL,
+  `customer_id` varchar(45) NOT NULL,
+  `question_title` varchar(255) NOT NULL,
+  `question_description` text,
+  `question_status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ -- ===================================================================================================
+CREATE TABLE `product_to_sellers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `seller_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_quantity` int(11) NOT NULL,
+  `product_price` decimal(10,2) NOT NULL,
+  `product_date_available` datetime NOT NULL,
+  `ship_to_countries` text,
+  `domastic_shipping` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `international_shipping` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `canada_shipping` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `seller_id_FK_idx` (`seller_id`),
+  KEY `product_id_FK_idx` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ 
+ -- ===================================================================================================================
+CREATE TABLE `reminders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `completed` tinyint(1) NOT NULL DEFAULT '0',
+  `completed_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `reminders_user_id_foreign` (`user_id`),
+  CONSTRAINT `reminders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ -- ====================================================================================================================
+CREATE TABLE `throttle` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `throttle_user_id_index` (`user_id`),
+  CONSTRAINT `throttle_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+ SET foreign_key_checks = 1;
+
+-- =========================== TABLE FIELD UPDATED MODIFIED ========================
+ALTER TABLE `customers`
+CHANGE `remember_token` `remember_token` text COLLATE 'latin1_swedish_ci' NULL AFTER `customer_newsletter`;
+
+
+
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `spare_part_categories`;
+CREATE TABLE `spare_part_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL,
+  `category_status` enum('Active','Inactive') NOT NULL DEFAULT 'Active', 
+  `sort_order` int(10) DEFAULT '0',
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` datetime  NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `category_desciptions`;
+CREATE TABLE `category_desciptions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL DEFAULT '1',
+  `title` varchar(200) DEFAULT NULL,
+  `category_desciption` text,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `category_id_FK_idx` (`category_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+SET foreign_key_checks = 1;
+-- =========================================================
+
+ALTER TABLE `car_model_versions`
+ADD `created_at` datetime NOT NULL,
+ADD `updated_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP AFTER `created_at`;
+
+-- =========================================================
+ALTER TABLE `customers`
+ADD `customer_company` varchar(255) COLLATE 'latin1_swedish_ci' NULL AFTER `customer_lastname`,
+ADD `customer_vat` varchar(255) COLLATE 'latin1_swedish_ci' NULL AFTER `customer_company`,
+ADD `customer_registeration` varchar(255) COLLATE 'latin1_swedish_ci' NULL AFTER `customer_vat`,
+CHANGE `customers_telephone` `customers_telephone` varchar(45) COLLATE 'latin1_swedish_ci' NOT NULL AFTER `customer_default_address`,
+CHANGE `customer_newsletter` `customer_newsletter` char(3) COLLATE 'latin1_swedish_ci' NULL DEFAULT 'No' AFTER `customer_password`,
+CHANGE `customer_status` `customer_status` enum('Active','Inactive') COLLATE 'latin1_swedish_ci' NOT NULL DEFAULT 'Active' AFTER `password_reset_date`,
+CHANGE `customer_avatar` `customer_avatar` varchar(255) COLLATE 'latin1_swedish_ci' NULL AFTER `customer_status`,
+CHANGE `customers_locale` `customers_locale` int(11) NULL AFTER `customer_avatar`,
+CHANGE `customer_role` `customer_role` enum('individual','business','subscriber') COLLATE 'latin1_swedish_ci' NULL DEFAULT 'individual' AFTER `customers_locale`,
+CHANGE `created_at` `created_at` datetime NULL AFTER `customer_role`,
+CHANGE `updated_at` `updated_at` datetime NULL AFTER `created_at`,
+CHANGE `deleted_at` `deleted_at` datetime NULL AFTER `updated_at`;
+
+--======================================================================
+
+SERVICES TABLES CREATED ON 13/11/2019
+
+CREATE TABLE `services` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `customer_id` int(11) NOT NULL,
+  `spare_part_category_id` bigint(20) unsigned NOT NULL,
+  `address_of_service` text NOT NULL,
+  `service_website` tinytext NULL,
+  `service_description` text NULL,
+  `name_for_service` tinytext NULL,
+  `email_for_service` tinytext NULL,
+  `phone_of_service` tinytext NULL,
+  `service_image` tinytext NULL,
+  `service_status` enum('Active','Inactive') NOT NULL DEFAULT 'Inactive',
+  `created_at` datetime NULL,
+  `updated_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` datetime NULL,
+  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
+  FOREIGN KEY (`spare_part_category_id`) REFERENCES `spare_part_categories` (`id`)
+) ENGINE='InnoDB';
+
+--================================================================================
+
+CREATE TABLE `service_timings` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `service_id` int(11) NOT NULL,
+  `day_name` enum('Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday') NOT NULL,
+  `opening_time` time NOT NULL,
+  `closing_time` time NOT NULL,
+  `created_at` datetime NULL,
+  `updated_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`service_id`) REFERENCES `services` (`id`)
+) ENGINE='InnoDB';
+
+--==============================================================
+
+CREATE TABLE `service_images` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `service_id` int(11) NOT NULL,
+  `image_name` varchar(200) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`service_id`) REFERENCES `services` (`id`)
+) ENGINE='InnoDB';
+
+===================================================================
+
+ALTER TABLE `services` ADD `poster_name` VARCHAR(255) NOT NULL AFTER `service_status`, ADD `poster_email` VARCHAR(255) NOT NULL AFTER `poster_name`, ADD `poster_phone` VARCHAR(255) NOT NULL AFTER `poster_email`;
+
+
+===================================================================
+CREATE TABLE `general_settings` (
+  `id` int(11) NOT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `small_logo` varchar(255) DEFAULT NULL,
+  `favicon` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `business_email` varchar(255) DEFAULT NULL,
+  `complaint_email` varchar(255) DEFAULT NULL,
+  `address` text,
+  `fax` varchar(255) DEFAULT NULL,
+  `other_info` text,
+  `updated_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE='InnoDB';
+
+ALTER TABLE `general_settings`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `general_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+-- ================================================================= languages,pages Table============
+SET foreign_key_checks = 0;
+CREATE TABLE `languages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `language_title` varchar(50) NOT NULL,
+  `language_code` char(2) NOT NULL,
+  `sort_order` int(5) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL,
+  `updated_at` timestamp NULL
+) ENGINE='InnoDB';
+--==========================================  
+
+DROP TABLE IF EXISTS `pages`;
+CREATE TABLE `pages` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `sort_order` int NOT NULL,
+  `status` enum('Publish','Unpublish') COLLATE 'latin1_swedish_ci' NOT NULL DEFAULT 'Publish',
+  `customer_id` int(11) NOT NULL DEFAULT '0' COMMENT 'Customer/Business user can also add their page. 0 for admin pages.',
+  `created_at` int NOT NULL,
+  `updated_at` int NOT NULL,
+  `deleted_at` int NOT NULL,
+  FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
+) ENGINE='InnoDB';
+--====================================================================
+
+CREATE TABLE `page_desciption` (
+  `page_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NULL,
+  `language_code` char(2) NOT NULL DEFAULT 'en',
+  `created_at` datetime NULL,
+  `updated_at` timestamp NULL ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE
+) ENGINE='InnoDB';
+SET foreign_key_checks = 1;
+--======================================================================
+ALTER TABLE `customers`
+CHANGE `customers_locale` `language_id` int(11) NULL AFTER `customer_avatar`,
+ADD FOREIGN KEY (`language_id`) REFERENCES `languages` (`id`);
+
+===========================================================================
+
+ALTER TABLE `coupons` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `general_settings` ADD `default_language` VARCHAR(255) NOT NULL AFTER `id`;
+ALTER TABLE `pages` CHANGE `created_at` `created_at` DATETIME NOT NULL, CHANGE `updated_at` `updated_at` DATETIME on update CURRENT_TIMESTAMP NOT NULL, CHANGE `deleted_at` `deleted_at` DATETIME NOT NULL;
+ALTER TABLE `pages` CHANGE `deleted_at` `deleted_at` DATETIME NULL DEFAULT NULL;
+
+===============================================================================
+
+ALTER TABLE `customers` ADD `country_id` INT(11) NULL AFTER `customer_status`;
+ALTER TABLE `customers` ADD `city_id` INT(11) NULL AFTER `country_id`;
+ALTER TABLE `customers` ADD `preferred_language` VARCHAR(30) NULL AFTER `city_id`;
+
+================================================================================
+
+ALTER TABLE `ads` CHANGE `user_id` `customer_id` INT(11) NOT NULL;
+ALTER TABLE `spare_part_ads` CHANGE `user_id` `customer_id` INT(11) NOT NULL;
+ALTER TABLE `user_saved_ads` CHANGE `user_id` `customer_id` INT(11) NOT NULL;
+
+--======================================================================================
+DROP TABLE IF EXISTS `makes`;
+CREATE TABLE `makes` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `sort_order` int(4) NOT NULL DEFAULT '0',
+  `is_popular` enum('yes,','no') NOT NULL DEFAULT 'no',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `models`;
+CREATE TABLE `models` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `make_id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `sort_order` int(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `make_id` (`make_id`),
+  CONSTRAINT `models_ibfk_1` FOREIGN KEY (`make_id`) REFERENCES `makes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+DROP TABLE IF EXISTS `versions`;
+CREATE TABLE `versions` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` tinytext NOT NULL,
+  `label` tinytext NOT NULL,
+  `model_id` int(11) NOT NULL,
+  `from_date` year(4) DEFAULT NULL,
+  `to_date` year(4) DEFAULT NULL,
+  `created_at` timestamp  timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp  timestamp NULL DEFAULT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `model_id` (`model_id`),
+  CONSTRAINT `versions_ibfk_1` FOREIGN KEY (`model_id`) REFERENCES `models` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `makes` ADD `image` varchar(255) COLLATE 'utf8mb4_unicode_ci' NULL AFTER `title`; 
+
+ALTER TABLE `spare_part_ads`
+CHANGE `user_id` `customer_id` int(11) NOT NULL AFTER `id`,
+ADD FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`); 
+ALTER TABLE `customers` ADD `logo` VARCHAR(111) NULL AFTER `city_id`; 
+
+--==========================================================================
+
+
+CREATE TABLE IF NOT EXISTS `spare_part_ad_images` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `spare_part_ad_id` int(11) NOT NULL,
+  `img` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `spare_part_ads` ADD `poster_city` INT(11) NOT NULL AFTER `poster_phone`;
+ALTER TABLE `ads` ADD `poster_city` INT(11) NOT NULL AFTER `poster_phone`;
+ALTER TABLE `customers` ADD `logo` VARCHAR(111) NULL AFTER `city_id`;
+--=======================================================================
+
+ALTER TABLE `versions`
+ADD `cc` varchar(50) NULL AFTER `to_date`,
+ADD `extra_details` varchar(255) NULL AFTER `cc`,
+ADD `kilowatt` int(10) NULL AFTER `extra_details`,
+CHANGE `sort_order` `sort_order` int(11) NOT NULL DEFAULT '0' AFTER `kilowatt`,
+CHANGE `created_at` `created_at` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP AFTER `sort_order`,
+CHANGE `updated_at` `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER `created_at`;
+
+--========================================================================
+ALTER TABLE `ads`
+ADD `engine_capacity` varchar(100) COLLATE 'utf8mb4_unicode_ci' NULL AFTER `description`,
+ADD `engine_power` varchar(100) COLLATE 'utf8mb4_unicode_ci' NULL AFTER `engine_capacity`,
+ADD `fuel_type` enum('CNG','Diesel','Hybrid','LPG','Petrol') COLLATE 'utf8mb4_unicode_ci' NULL DEFAULT 'Petrol' AFTER `engine_power`,
+ADD `transmission_type` enum('Manual','Automatic') COLLATE 'utf8mb4_unicode_ci' NULL DEFAULT 'Manual' AFTER `fuel_type`,
+ADD `assembly` enum('Local','Imported') COLLATE 'utf8mb4_unicode_ci' NULL AFTER `transmission_type`;
